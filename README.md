@@ -10,6 +10,9 @@ cp .env.example .env
 
 # Update configs in .env file
 
+# Push prisma schema to database
+pnpm prisma db push
+
 # Install dependencies
 pnpm install
 ```
