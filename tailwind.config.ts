@@ -12,9 +12,11 @@ export default {
           500: "#64748b",
           600: "#1e293b",
         },
+        body: "#1e293b",
       },
       fontFamily: {
         heading: "Poppins, sans-serif",
+        body: "Montserrat, sans-serif",
       },
     },
   },
