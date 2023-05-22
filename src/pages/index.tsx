@@ -1,17 +1,34 @@
 import { type NextPage } from "next";
 import Header from "~/components/header";
 import Intersect from "~/assets/intersect.svg";
-import { motion } from "framer-motion";
+import { Variants, motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import Dashboard from "~/assets/dashboard.png";
 import Pattern from "~/assets/pattern.png";
 import Counter from "~/components/counter";
+import Feature from "~/assets/img-1.png";
+import BlobTear from "~/assets/blob-tear.svg";
 
 const Home: NextPage = () => {
+  const featuresMotion: Variants = {
+    hidden: {
+      opacity: 0,
+      y: 40,
+    },
+    show: (custom) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: custom * 0.4,
+        duration: 1.2,
+      },
+    }),
+  };
   return (
     <>
       <Header />
+      {/* Hero */}
       <section
         className="-mt-24 bg-top bg-no-repeat pt-24 xl:bg-contain"
         style={{
@@ -176,6 +193,192 @@ const Home: NextPage = () => {
                   Research Work
                 </p>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* Features */}
+      <section
+        className="overflow-x-hidden py-12 md:py-16 lg:py-32"
+        id="key-featuers"
+      >
+        <div className="container mx-auto px-4">
+          <div className="flex flex-wrap lg:flex-none">
+            <div className="w-full lg:w-1/2">
+              <motion.div className="lg:py-6 lg:pr-32">
+                <div className="mb-4">
+                  <motion.span
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{
+                      duration: 1.2,
+                    }}
+                    className="rounded-xl bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-500"
+                  >
+                    Why choose us
+                  </motion.span>
+                  <motion.h2
+                    variants={featuresMotion}
+                    initial="hidden"
+                    whileInView="show"
+                    custom={0}
+                    className="mt-5 font-heading text-4xl font-bold"
+                  >
+                    Key Features
+                  </motion.h2>
+                </div>
+                <motion.div
+                  variants={featuresMotion}
+                  initial="hidden"
+                  whileInView="show"
+                  custom={1}
+                  className="flex items-start py-4"
+                >
+                  <div className="mr-5 w-8 text-blue-500">
+                    <svg
+                      className="h-6 w-6"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="mb-2 font-heading text-xl font-semibold">
+                      Expand Your Reach
+                    </h3>
+                    <p className="leading-loose text-blueGray-500">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Consectetur nostrum pariatur ab.
+                    </p>
+                  </div>
+                </motion.div>
+                <motion.div
+                  variants={featuresMotion}
+                  initial="hidden"
+                  whileInView="show"
+                  custom={2}
+                  className="flex items-start py-4"
+                >
+                  <div className="mr-5 w-8 text-blue-500">
+                    <svg
+                      className="h-6 w-6"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"
+                      ></path>
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="mb-2 font-heading text-xl font-semibold">
+                      Annualized Growth
+                    </h3>
+                    <p className="leading-loose text-blueGray-500">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Consectetur nostrum pariatur ab.
+                    </p>
+                  </div>
+                </motion.div>
+                <motion.div
+                  variants={featuresMotion}
+                  initial="hidden"
+                  whileInView="show"
+                  custom={3}
+                  className="flex items-start py-4"
+                >
+                  <div className="mr-5 w-8 text-blue-500">
+                    <svg
+                      className="h-6 w-6"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="mb-2 font-heading text-xl font-semibold">
+                      Book Your Providers
+                    </h3>
+                    <p className="leading-loose text-blueGray-500">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Consectetur nostrum pariatur ab.
+                    </p>
+                  </div>
+                </motion.div>
+              </motion.div>
+            </div>
+            <div className="relative my-12 w-full lg:my-0 lg:w-1/2">
+              <motion.div>
+                <motion.div
+                  animate={{
+                    y: -20,
+                  }}
+                  initial={{
+                    opacity: 0,
+                    x: 300,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    x: 0,
+                  }}
+                  viewport={{
+                    once: true,
+                  }}
+                  transition={{
+                    y: {
+                      repeat: Infinity,
+                      duration: 1.2,
+                      repeatType: "mirror",
+                    },
+                    x: {
+                      duration: 1.2,
+                    },
+                  }}
+                >
+                  <Image
+                    className="relative z-10 mx-auto w-full rounded-xl"
+                    src={Feature}
+                    alt="feature-image"
+                  />
+                </motion.div>
+                <Image
+                  className="absolute left-0 top-0 -ml-12 -mt-12 w-40"
+                  src={BlobTear as string}
+                  alt="blog-tear"
+                />
+                <Image
+                  className="absolute bottom-0 right-0 -mb-12 -mr-12 w-40"
+                  src={BlobTear as string}
+                  alt="blob-tear"
+                />
+              </motion.div>
             </div>
           </div>
         </div>

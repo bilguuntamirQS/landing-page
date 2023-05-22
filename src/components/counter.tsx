@@ -22,9 +22,7 @@ const Counter: FC<CounterProps> = ({ from, to }) => {
     return () => controls.stop();
   }, [from, to]);
 
-  return (
-    <span className="count font-heading font-bold sm:text-2xl">{count}</span>
-  );
+  return <span className="font-heading font-bold sm:text-2xl">{count}</span>;
 };
 
 export default Counter;
