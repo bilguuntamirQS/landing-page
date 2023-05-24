@@ -585,14 +585,26 @@ const Home: NextPage = () => {
           <div className="flex flex-wrap -mx-3">
             <div className="relative mb-8 w-full text-center lg:mb-0 lg:w-1/3 lg:text-left">
               <div className="mx-auto mb-6 max-w-md lg:pr-16 lg:mb-0 lg:ml-0 lg:max-w-xs">
-                <h2 className="mb-4 text-3xl font-bold md:text-4xl font-heading">
+                <motion.h2
+                  variants={featuresMotion}
+                  custom={0}
+                  initial="hidden"
+                  whileInView="show"
+                  className="mb-4 text-3xl font-bold md:text-4xl font-heading"
+                >
                   Simple Solution for{" "}
                   <span className="text-blue-500">Complex</span> Connections
-                </h2>
-                <p className="text-xs leading-loose md:text-base text-blueGray-500">
+                </motion.h2>
+                <motion.p
+                  variants={featuresMotion}
+                  custom={1}
+                  initial="hidden"
+                  whileInView="show"
+                  className="text-xs leading-loose md:text-base text-blueGray-500"
+                >
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
                   luctus eget justo et iaculis.
-                </p>
+                </motion.p>
               </div>
               <div className="flex justify-center lg:absolute lg:bottom-0 lg:left-0">
                 <div className="flex">
@@ -679,6 +691,71 @@ const Home: NextPage = () => {
                 </motion.div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+      {/* World */}
+      <section
+        className="py-20 bg-top bg-no-repeat"
+        style={{
+          backgroundImage:
+            "url(https://wp.alithemes.com/html/monst/assets/imgs/elements/blob.svg)",
+        }}
+      >
+        <div className="container px-4 mx-auto">
+          <div className="relative py-20 px-4 lg:p-20">
+            <div className="mx-auto max-w-lg text-center">
+              <motion.h2
+                variants={featuresMotion}
+                initial="hidden"
+                whileInView="show"
+                custom={0}
+                className="mb-4 text-3xl font-bold lg:text-4xl font-heading"
+              >
+                Subscribe now to{" "}
+                <span className="text-blue-500">Our Newsletter</span> and get
+                the Coupon code.
+              </motion.h2>
+              <motion.p
+                variants={featuresMotion}
+                initial="hidden"
+                whileInView="show"
+                custom={1}
+                className="mb-8 text-blueGray-500"
+              >
+                All your information is completely confidential
+              </motion.p>
+            </div>
+            <motion.div
+              variants={featuresMotion}
+              initial="hidden"
+              whileInView="show"
+              custom={2}
+              className="flex flex-wrap p-4 mx-auto max-w-md bg-white rounded-lg"
+            >
+              <div className="flex px-3 mb-3 w-full rounded md:mr-6 md:mb-0 md:w-2/3 bg-blueGray-100">
+                <svg
+                  className="my-auto w-6 h-6 text-blueGray-500"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                </svg>
+                <input
+                  className="py-4 pl-3 w-full text-xs font-semibold leading-none outline-none bg-blueGray-100 text-blueGray-400"
+                  type="text"
+                  placeholder="Type your e-mail"
+                />
+              </div>
+              <button
+                className="py-4 px-8 w-full text-xs font-semibold leading-none text-white bg-blue-500 rounded md:w-auto hover:bg-blue-500"
+                type="submit"
+              >
+                Sign Up
+              </button>
+            </motion.div>
           </div>
         </div>
       </section>
