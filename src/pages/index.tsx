@@ -103,7 +103,7 @@ const Home: NextPage = () => {
                 <br />
                 Commited <span className="text-blue-500">to the Future</span>
               </motion.h2>
-              <p className="leading-relaxed text-blueGray-500">
+              <p className="leading-relaxed text-blueGray-400">
                 We are <strong className="text-blue-500">Monst</strong>, a
                 Creative Design{" "}
               </p>
@@ -176,7 +176,7 @@ const Home: NextPage = () => {
               <div className="ml-2 sm:py-2 sm:ml-6">
                 <span className="font-bold sm:text-2xl font-heading">+ </span>
                 <Counter to={150} />
-                <p className="text-xs sm:text-base text-blueGray-500">
+                <p className="text-xs sm:text-base text-blueGray-400">
                   Annual Partner
                 </p>
               </div>
@@ -202,7 +202,7 @@ const Home: NextPage = () => {
                 <span className="font-bold sm:text-2xl font-heading">+ </span>
                 <Counter to={57} />
                 <span className="font-bold sm:text-2xl font-heading"> K</span>
-                <p className="text-xs sm:text-base text-blueGray-500">
+                <p className="text-xs sm:text-base text-blueGray-400">
                   Completed Projects
                 </p>
               </div>
@@ -227,7 +227,7 @@ const Home: NextPage = () => {
               <div className="ml-2 sm:py-2 sm:ml-6">
                 <span className="font-bold sm:text-2xl font-heading">+ </span>
                 <Counter to={500} />
-                <p className="text-xs sm:text-base text-blueGray-500">
+                <p className="text-xs sm:text-base text-blueGray-400">
                   Happy Customers
                 </p>
               </div>
@@ -252,7 +252,7 @@ const Home: NextPage = () => {
               <div className="ml-2 sm:py-2 sm:ml-6">
                 <span className="font-bold sm:text-2xl font-heading">+ </span>
                 <Counter to={320} />
-                <p className="text-xs sm:text-base text-blueGray-500">
+                <p className="text-xs sm:text-base text-blueGray-400">
                   Research Work
                 </p>
               </div>
@@ -317,7 +317,7 @@ const Home: NextPage = () => {
                     <h3 className="mb-2 text-xl font-semibold font-heading">
                       Expand Your Reach
                     </h3>
-                    <p className="leading-loose text-blueGray-500">
+                    <p className="leading-loose text-blueGray-400">
                       Lorem ipsum dolor sit amet consectetur adipisicing elit.
                       Consectetur nostrum pariatur ab.
                     </p>
@@ -356,7 +356,7 @@ const Home: NextPage = () => {
                     <h3 className="mb-2 text-xl font-semibold font-heading">
                       Annualized Growth
                     </h3>
-                    <p className="leading-loose text-blueGray-500">
+                    <p className="leading-loose text-blueGray-400">
                       Lorem ipsum dolor sit amet consectetur adipisicing elit.
                       Consectetur nostrum pariatur ab.
                     </p>
@@ -389,7 +389,7 @@ const Home: NextPage = () => {
                     <h3 className="mb-2 text-xl font-semibold font-heading">
                       Book Your Providers
                     </h3>
-                    <p className="leading-loose text-blueGray-500">
+                    <p className="leading-loose text-blueGray-400">
                       Lorem ipsum dolor sit amet consectetur adipisicing elit.
                       Consectetur nostrum pariatur ab.
                     </p>
@@ -491,7 +491,7 @@ const Home: NextPage = () => {
                 }}
                 initial="hidden"
                 whileInView="show"
-                className="leading-loose text-blueGray-500"
+                className="leading-loose text-blueGray-400"
               >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
                 luctus eget justo et iaculis. Quisque vitae nulla malesuada,
@@ -521,7 +521,7 @@ const Home: NextPage = () => {
                 <h3 className="mb-2 font-bold font-heading">
                   Project Initialization
                 </h3>
-                <p className="text-sm leading-relaxed text-blueGray-500">
+                <p className="text-sm leading-relaxed text-blueGray-400">
                   Sed ac magna sit amet risus tristique interdum at vel velit.
                   In hac habitasse platea dictumst.
                 </p>
@@ -547,7 +547,7 @@ const Home: NextPage = () => {
                 <h3 className="mb-2 font-bold font-heading">
                   Looking for Creative
                 </h3>
-                <p className="text-sm leading-relaxed text-blueGray-500">
+                <p className="text-sm leading-relaxed text-blueGray-400">
                   Sed ac magna sit amet risus tristique interdum at vel velit.
                   In hac habitasse platea dictumst.
                 </p>
@@ -573,7 +573,7 @@ const Home: NextPage = () => {
                 <h3 className="mb-2 font-bold font-heading">
                   Market Development
                 </h3>
-                <p className="text-sm leading-relaxed text-blueGray-500">
+                <p className="text-sm leading-relaxed text-blueGray-400">
                   Sed ac magna sit amet risus tristique interdum at vel velit.
                   In hac habitasse platea dictumst.
                 </p>
@@ -603,7 +603,7 @@ const Home: NextPage = () => {
                   custom={1}
                   initial="hidden"
                   whileInView="show"
-                  className="text-xs leading-loose md:text-base text-blueGray-500"
+                  className="text-xs leading-loose md:text-base text-blueGray-400"
                 >
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
                   luctus eget justo et iaculis.
@@ -724,7 +724,7 @@ const Home: NextPage = () => {
                 initial="hidden"
                 whileInView="show"
                 custom={1}
-                className="mb-8 text-blueGray-500"
+                className="mb-8 text-blueGray-400"
               >
                 All your information is completely confidential
               </motion.p>
@@ -738,7 +738,7 @@ const Home: NextPage = () => {
             >
               <div className="flex px-3 mb-3 w-full rounded md:mr-6 md:mb-0 md:w-2/3 bg-blueGray-100">
                 <svg
-                  className="my-auto w-6 h-6 text-blueGray-500"
+                  className="my-auto w-6 h-6 text-blueGray-400"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                   fill="currentColor"
@@ -747,7 +747,7 @@ const Home: NextPage = () => {
                   <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
                 </svg>
                 <input
-                  className="py-4 pl-3 w-full text-xs font-semibold leading-none outline-none bg-blueGray-100 text-blueGray-400"
+                  className="py-4 pl-3 w-full text-xs font-semibold leading-none outline-none bg-blueGray-100 text-blueGray-500"
                   type="text"
                   placeholder="Type your e-mail"
                 />
@@ -785,7 +785,7 @@ const Home: NextPage = () => {
               </Link>
             </div>
             <div className="px-3 mb-8 w-full lg:mb-0 lg:w-2/5">
-              <p className="mx-auto max-w-md leading-relaxed lg:pr-32 lg:mx-0 lg:max-w-full lg:text-xl text-blueGray-500">
+              <p className="mx-auto max-w-md leading-relaxed lg:pr-32 lg:mx-0 lg:max-w-full lg:text-xl text-blueGray-400">
                 Helping you <strong>maximize</strong> operations management with
                 digitization
               </p>
@@ -794,7 +794,7 @@ const Home: NextPage = () => {
               <p className="mb-2 font-bold lg:mb-4 lg:text-lg font-heading">
                 Office
               </p>
-              <p className="lg:text-lg text-blueGray-500">
+              <p className="lg:text-lg text-blueGray-400">
                 359 Hidden Valley Road, NY
               </p>
             </div>
@@ -802,13 +802,13 @@ const Home: NextPage = () => {
               <p className="mb-2 font-bold lg:mb-4 lg:text-lg font-heading">
                 Contacts
               </p>
-              <p className="lg:text-lg text-blueGray-500">(+01) 234 568</p>
-              <p className="lg:text-lg text-blueGray-500">contact@monst.com</p>
+              <p className="lg:text-lg text-blueGray-400">(+01) 234 568</p>
+              <p className="lg:text-lg text-blueGray-400">contact@monst.com</p>
             </div>
           </div>
           <div className="flex flex-col items-center lg:flex-row lg:justify-between">
-            <p className="text-sm text-blueGray-500">
-              © 2021. All rights reserved. Designed by
+            <p className="text-sm text-blueGray-400">
+              © 2021. All rights reserved. Designed by{" "}
               <Link href="#" className="text-blue-400">
                 Alithemes.com
               </Link>
