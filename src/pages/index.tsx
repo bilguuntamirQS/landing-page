@@ -1,16 +1,23 @@
 import { type NextPage } from "next";
-import Intersect from "~/assets/intersect.svg";
-import { type Variants, motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import Dashboard from "~/assets/dashboard.png";
-import Pattern from "~/assets/pattern.png";
+import { type Variants, motion } from "framer-motion";
 import Counter from "~/components/counter";
-import Feature from "~/assets/img-1.png";
-import BlobTear from "~/assets/blob-tear.svg";
+import dashboardImage from "~/assets/dashboard.png";
+import patternImage from "~/assets/pattern.png";
+import intersectSvg from "~/assets/intersect.svg";
+import featureImage from "~/assets/img-1.png";
+import blobTearSvg from "~/assets/blob-tear.svg";
 import eatingSvg from "~/assets/eating.svg";
 import spaceSvg from "~/assets/space.svg";
 import tasksSvg from "~/assets/tasks.svg";
+import { useEffect, useRef, useState } from "react";
+
+interface Product {
+  title: string;
+  description: string;
+  image: string;
+}
 
 const Home: NextPage = () => {
   const featuresMotion: Variants = {
@@ -34,23 +41,60 @@ const Home: NextPage = () => {
     },
   };
 
+  const products: Product[] = [
+    {
+      title: "New Event",
+      description: "Oxford univercity",
+      image:
+        "https://wp.alithemes.com/html/monst/assets/imgs/placeholders/img-4.jpg",
+    },
+    {
+      title: "Shopping Mall",
+      description: "Alibaba Co",
+      image:
+        "https://wp.alithemes.com/html/monst/assets/imgs/placeholders/img-5.jpg",
+    },
+    {
+      title: "User growth",
+      description: "Harvard univercity",
+      image:
+        "https://wp.alithemes.com/html/monst/assets/imgs/placeholders/img-2.jpg",
+    },
+    {
+      title: "Product Launch",
+      description: "Cocacola, Co",
+      image:
+        "https://wp.alithemes.com/html/monst/assets/imgs/placeholders/img-3.jpg",
+    },
+  ];
+
+  const [carouselWidth, setCarouselWidth] = useState(0);
+  const carouselRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (carouselRef.current)
+      setCarouselWidth(
+        carouselRef.current?.scrollWidth - carouselRef.current?.offsetWidth
+      );
+  }, []);
+
   return (
     <>
       {/* Hero */}
       <section
-        className="-mt-24 bg-top bg-no-repeat pt-24 xl:bg-contain"
+        className="pt-24 -mt-24 bg-top bg-no-repeat xl:bg-contain"
         style={{
-          backgroundImage: `url(${(Intersect as { src: string }).src})`,
+          backgroundImage: `url(${(intersectSvg as { src: string }).src})`,
         }}
       >
-        <div className="container mx-auto px-4">
+        <div className="container px-4 mx-auto">
           <div className="pt-12 text-center">
             <div className="mx-auto mb-8 max-w-2xl">
               <motion.h2
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8 }}
-                className="mb-4 font-heading text-3xl font-bold lg:text-5xl lg:leading-normal"
+                className="mb-4 text-3xl font-bold lg:text-5xl lg:leading-normal font-heading"
               >
                 Committed to People
                 <br />
@@ -62,18 +106,26 @@ const Home: NextPage = () => {
               </p>
             </div>
             <div>
-              <Link href="#key-features" className="btn-primary mr-2 px-8 py-4">
+              <Link
+                href="/#key-features"
+                scroll={false}
+                className="py-4 px-8 mr-2 btn-primary"
+              >
                 Key Features
               </Link>
-              <Link href="#how-we-work" className="btn-white mr-2 px-8 py-4">
+              <Link
+                href="/#how-we-work"
+                scroll={false}
+                className="py-4 px-8 mr-2 btn-white"
+              >
                 Key Features
               </Link>
             </div>
           </div>
         </div>
-        <div className="relative mx-auto mb-8 mt-16 max-w-6xl md:mt-8">
+        <div className="relative mx-auto mt-16 mb-8 max-w-6xl md:mt-8">
           <Image
-            src={Pattern}
+            src={patternImage}
             alt="pattern"
             className="w-full"
             width={942}
@@ -92,19 +144,19 @@ const Home: NextPage = () => {
           >
             <Image
               className="w-full rounded"
-              src={Dashboard}
+              src={dashboardImage}
               width={678}
               height={436}
               alt="dashboard"
             />
           </motion.div>
         </div>
-        <div className="container mx-auto px-4">
-          <div className="flex flex-wrap justify-between pb-16 pt-8">
-            <div className="flex w-1/2 py-4 lg:w-auto">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blueGray-50 text-blue-500 sm:h-20 sm:w-20">
+        <div className="container px-4 mx-auto">
+          <div className="flex flex-wrap justify-between pt-8 pb-16">
+            <div className="flex py-4 w-1/2 lg:w-auto">
+              <div className="flex justify-center items-center w-12 h-12 text-blue-500 rounded-xl sm:w-20 sm:h-20 bg-blueGray-50">
                 <svg
-                  className="h-8 w-8"
+                  className="w-8 h-8"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -118,18 +170,18 @@ const Home: NextPage = () => {
                   ></path>
                 </svg>
               </div>
-              <div className="ml-2 sm:ml-6 sm:py-2">
-                <span className="font-heading font-bold sm:text-2xl">+ </span>
+              <div className="ml-2 sm:py-2 sm:ml-6">
+                <span className="font-bold sm:text-2xl font-heading">+ </span>
                 <Counter to={150} />
-                <p className="text-xs text-blueGray-500 sm:text-base">
+                <p className="text-xs sm:text-base text-blueGray-500">
                   Annual Partner
                 </p>
               </div>
             </div>
-            <div className="flex w-1/2 py-4 lg:w-auto">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blueGray-50 text-blue-500 sm:h-20 sm:w-20">
+            <div className="flex py-4 w-1/2 lg:w-auto">
+              <div className="flex justify-center items-center w-12 h-12 text-blue-500 rounded-xl sm:w-20 sm:h-20 bg-blueGray-50">
                 <svg
-                  className="h-8 w-8"
+                  className="w-8 h-8"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -143,19 +195,19 @@ const Home: NextPage = () => {
                   ></path>
                 </svg>
               </div>
-              <div className="ml-2 sm:ml-6 sm:py-2">
-                <span className="font-heading font-bold sm:text-2xl">+ </span>
+              <div className="ml-2 sm:py-2 sm:ml-6">
+                <span className="font-bold sm:text-2xl font-heading">+ </span>
                 <Counter to={57} />
-                <span className="font-heading font-bold sm:text-2xl"> K</span>
-                <p className="text-xs text-blueGray-500 sm:text-base">
+                <span className="font-bold sm:text-2xl font-heading"> K</span>
+                <p className="text-xs sm:text-base text-blueGray-500">
                   Completed Projects
                 </p>
               </div>
             </div>
-            <div className="flex w-1/2 py-4 lg:w-auto">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blueGray-50 text-blue-500 sm:h-20 sm:w-20">
+            <div className="flex py-4 w-1/2 lg:w-auto">
+              <div className="flex justify-center items-center w-12 h-12 text-blue-500 rounded-xl sm:w-20 sm:h-20 bg-blueGray-50">
                 <svg
-                  className="h-8 w-8"
+                  className="w-8 h-8"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -169,18 +221,18 @@ const Home: NextPage = () => {
                   ></path>
                 </svg>
               </div>
-              <div className="ml-2 sm:ml-6 sm:py-2">
-                <span className="font-heading font-bold sm:text-2xl">+ </span>
+              <div className="ml-2 sm:py-2 sm:ml-6">
+                <span className="font-bold sm:text-2xl font-heading">+ </span>
                 <Counter to={500} />
-                <p className="text-xs text-blueGray-500 sm:text-base">
+                <p className="text-xs sm:text-base text-blueGray-500">
                   Happy Customers
                 </p>
               </div>
             </div>
-            <div className="flex w-1/2 py-4 lg:w-auto">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blueGray-50 text-blue-500 sm:h-20 sm:w-20">
+            <div className="flex py-4 w-1/2 lg:w-auto">
+              <div className="flex justify-center items-center w-12 h-12 text-blue-500 rounded-xl sm:w-20 sm:h-20 bg-blueGray-50">
                 <svg
-                  className="h-8 w-8"
+                  className="w-8 h-8"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -194,10 +246,10 @@ const Home: NextPage = () => {
                   ></path>
                 </svg>
               </div>
-              <div className="ml-2 sm:ml-6 sm:py-2">
-                <span className="font-heading font-bold sm:text-2xl">+ </span>
+              <div className="ml-2 sm:py-2 sm:ml-6">
+                <span className="font-bold sm:text-2xl font-heading">+ </span>
                 <Counter to={320} />
-                <p className="text-xs text-blueGray-500 sm:text-base">
+                <p className="text-xs sm:text-base text-blueGray-500">
                   Research Work
                 </p>
               </div>
@@ -208,9 +260,9 @@ const Home: NextPage = () => {
       {/* Features */}
       <section
         className="overflow-x-hidden py-12 md:py-16 lg:py-32"
-        id="key-featuers"
+        id="key-features"
       >
-        <div className="container mx-auto px-4">
+        <div className="container px-4 mx-auto">
           <div className="flex flex-wrap lg:flex-none">
             <div className="w-full lg:w-1/2">
               <motion.div className="lg:py-6 lg:pr-32">
@@ -221,7 +273,7 @@ const Home: NextPage = () => {
                     transition={{
                       duration: 1.2,
                     }}
-                    className="rounded-xl bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-500"
+                    className="py-1 px-3 text-xs font-semibold text-blue-500 bg-blue-50 rounded-xl"
                   >
                     Why choose us
                   </motion.span>
@@ -230,7 +282,7 @@ const Home: NextPage = () => {
                     initial="hidden"
                     whileInView="show"
                     custom={0}
-                    className="mt-5 font-heading text-4xl font-bold"
+                    className="mt-5 text-4xl font-bold font-heading"
                   >
                     Key Features
                   </motion.h2>
@@ -244,7 +296,7 @@ const Home: NextPage = () => {
                 >
                   <div className="mr-5 w-8 text-blue-500">
                     <svg
-                      className="h-6 w-6"
+                      className="w-6 h-6"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -259,7 +311,7 @@ const Home: NextPage = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="mb-2 font-heading text-xl font-semibold">
+                    <h3 className="mb-2 text-xl font-semibold font-heading">
                       Expand Your Reach
                     </h3>
                     <p className="leading-loose text-blueGray-500">
@@ -277,7 +329,7 @@ const Home: NextPage = () => {
                 >
                   <div className="mr-5 w-8 text-blue-500">
                     <svg
-                      className="h-6 w-6"
+                      className="w-6 h-6"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -298,7 +350,7 @@ const Home: NextPage = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="mb-2 font-heading text-xl font-semibold">
+                    <h3 className="mb-2 text-xl font-semibold font-heading">
                       Annualized Growth
                     </h3>
                     <p className="leading-loose text-blueGray-500">
@@ -316,7 +368,7 @@ const Home: NextPage = () => {
                 >
                   <div className="mr-5 w-8 text-blue-500">
                     <svg
-                      className="h-6 w-6"
+                      className="w-6 h-6"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -331,7 +383,7 @@ const Home: NextPage = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="mb-2 font-heading text-xl font-semibold">
+                    <h3 className="mb-2 text-xl font-semibold font-heading">
                       Book Your Providers
                     </h3>
                     <p className="leading-loose text-blueGray-500">
@@ -372,18 +424,18 @@ const Home: NextPage = () => {
                 >
                   <Image
                     className="relative z-10 mx-auto w-full rounded-xl"
-                    src={Feature}
+                    src={featureImage}
                     alt="feature-image"
                   />
                 </motion.div>
                 <Image
-                  className="absolute left-0 top-0 -ml-12 -mt-12 w-40"
-                  src={BlobTear as string}
+                  className="absolute top-0 left-0 -mt-12 -ml-12 w-40"
+                  src={blobTearSvg as string}
                   alt="blog-tear"
                 />
                 <Image
-                  className="absolute bottom-0 right-0 -mb-12 -mr-12 w-40"
-                  src={BlobTear as string}
+                  className="absolute right-0 bottom-0 -mr-12 -mb-12 w-40"
+                  src={blobTearSvg as string}
                   alt="blob-tear"
                 />
               </motion.div>
@@ -392,9 +444,9 @@ const Home: NextPage = () => {
         </div>
       </section>
       {/* How We Work*/}
-      <section className="bg-blueGray-50 py-20" id="how-we-work">
-        <div className="container mx-auto px-4">
-          <div className="mb-12 flex max-w-2xl flex-wrap items-center justify-between lg:max-w-full">
+      <section className="py-20 bg-blueGray-50" id="how-we-work">
+        <div className="container px-4 mx-auto">
+          <div className="flex flex-wrap justify-between items-center mb-12 max-w-2xl lg:max-w-full">
             <div className="mb-4 w-full lg:mb-0 lg:w-1/2">
               <motion.h2
                 variants={{
@@ -412,14 +464,14 @@ const Home: NextPage = () => {
                 }}
                 initial="hidden"
                 whileInView="show"
-                className="font-heading text-3xl font-bold md:text-4xl"
+                className="text-3xl font-bold md:text-4xl font-heading"
               >
                 We are <span className="text-blue-500">awesome team</span>
                 <br />
                 for your business dream
               </motion.h2>
             </div>
-            <div className="w-full lg:w-1/2 lg:pl-16">
+            <div className="w-full lg:pl-16 lg:w-1/2">
               <motion.p
                 variants={{
                   hidden: {
@@ -445,25 +497,25 @@ const Home: NextPage = () => {
               </motion.p>
             </div>
           </div>
-          <div className="-mx-3 -mb-6 flex flex-wrap text-center">
+          <div className="flex flex-wrap -mx-3 -mb-6 text-center">
             <motion.div
               variants={howWeWorkMotion}
               custom={0}
               initial="hidden"
               whileInView="show"
               whileHover="hover"
-              className="mb-6 w-full px-3 md:w-1/2 lg:w-1/3"
+              className="px-3 mb-6 w-full md:w-1/2 lg:w-1/3"
             >
-              <div className="rounded bg-white p-12 shadow">
-                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-blue-200 font-heading font-bold text-blue-800">
+              <div className="p-12 bg-white rounded shadow">
+                <div className="flex justify-center items-center mx-auto w-12 h-12 font-bold text-blue-800 bg-blue-200 rounded-full font-heading">
                   1
                 </div>
                 <Image
-                  className="mx-auto my-4 h-48"
+                  className="my-4 mx-auto h-48"
                   src={eatingSvg as string}
                   alt="eating"
                 />
-                <h3 className="mb-2 font-heading font-bold">
+                <h3 className="mb-2 font-bold font-heading">
                   Project Initialization
                 </h3>
                 <p className="text-sm leading-relaxed text-blueGray-500">
@@ -478,18 +530,18 @@ const Home: NextPage = () => {
               initial="hidden"
               whileInView="show"
               whileHover="hover"
-              className="mb-6 w-full px-3 md:w-1/2 lg:w-1/3"
+              className="px-3 mb-6 w-full md:w-1/2 lg:w-1/3"
             >
-              <div className="rounded bg-white p-12 shadow">
-                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-blue-200 font-heading font-bold text-blue-800">
+              <div className="p-12 bg-white rounded shadow">
+                <div className="flex justify-center items-center mx-auto w-12 h-12 font-bold text-blue-800 bg-blue-200 rounded-full font-heading">
                   2
                 </div>
                 <Image
-                  className="mx-auto my-4 h-48"
+                  className="my-4 mx-auto h-48"
                   src={spaceSvg as string}
                   alt="space"
                 />
-                <h3 className="mb-2 font-heading font-bold">
+                <h3 className="mb-2 font-bold font-heading">
                   Looking for Creative
                 </h3>
                 <p className="text-sm leading-relaxed text-blueGray-500">
@@ -504,18 +556,18 @@ const Home: NextPage = () => {
               initial="hidden"
               whileInView="show"
               whileHover="hover"
-              className="mb-6 w-full px-3 md:w-1/2 lg:w-1/3"
+              className="px-3 mb-6 w-full md:w-1/2 lg:w-1/3"
             >
-              <div className="rounded bg-white p-12 shadow">
-                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-blue-200 font-heading font-bold text-blue-800">
+              <div className="p-12 bg-white rounded shadow">
+                <div className="flex justify-center items-center mx-auto w-12 h-12 font-bold text-blue-800 bg-blue-200 rounded-full font-heading">
                   3
                 </div>
                 <Image
-                  className="mx-auto my-4 h-48"
+                  className="my-4 mx-auto h-48"
                   src={tasksSvg as string}
                   alt="space"
                 />
-                <h3 className="mb-2 font-heading font-bold">
+                <h3 className="mb-2 font-bold font-heading">
                   Market Development
                 </h3>
                 <p className="text-sm leading-relaxed text-blueGray-500">
@@ -524,6 +576,109 @@ const Home: NextPage = () => {
                 </p>
               </div>
             </motion.div>
+          </div>
+        </div>
+      </section>
+      {/* Carousel */}
+      <section className="py-12 md:py-20">
+        <div className="container px-4 mx-auto">
+          <div className="flex flex-wrap -mx-3">
+            <div className="relative mb-8 w-full text-center lg:mb-0 lg:w-1/3 lg:text-left">
+              <div className="mx-auto mb-6 max-w-md lg:pr-16 lg:mb-0 lg:ml-0 lg:max-w-xs">
+                <h2 className="mb-4 text-3xl font-bold md:text-4xl font-heading">
+                  Simple Solution for{" "}
+                  <span className="text-blue-500">Complex</span> Connections
+                </h2>
+                <p className="text-xs leading-loose md:text-base text-blueGray-500">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                  luctus eget justo et iaculis.
+                </p>
+              </div>
+              <div className="flex justify-center lg:absolute lg:bottom-0 lg:left-0">
+                <div className="flex">
+                  <span className="flex p-3 mr-4 text-blue-500 cursor-pointer">
+                    <svg
+                      className="w-6 h-6"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M7 16l-4-4m0 0l4-4m-4 4h18"
+                      ></path>
+                    </svg>
+                  </span>
+                  <span className="flex p-3 mr-4 text-blue-500 cursor-pointer">
+                    <svg
+                      className="w-6 h-6"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+                      ></path>
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div className="flex flex-wrap w-full lg:w-2/3">
+              <div className="relative w-full">
+                <motion.div
+                  ref={carouselRef}
+                  className="overflow-hidden cursor-grab"
+                  whileTap={{ cursor: "grabbing" }}
+                >
+                  <motion.div
+                    drag="x"
+                    dragConstraints={{ right: 0, left: -carouselWidth }}
+                    className="flex gap-4 px-3 pb-5"
+                  >
+                    {products.map((i, index) => (
+                      <div
+                        key={`product-${index}`}
+                        className="border group border-blueGray-100"
+                      >
+                        <Image
+                          src={i.image}
+                          alt="product"
+                          width={249}
+                          height={340.98}
+                          className="rounded-xl pointer-events-none min-w-[20rem] overflow-clip"
+                        />
+                        <div className="flex justify-between items-end">
+                          <div>
+                            <h1 className="mt-5 text-xl font-semibold group-hover:text-blue-500">
+                              {i.title}
+                            </h1>
+                            <p className="mt-2 text-xs text-gray-500">
+                              {i.description}
+                            </p>
+                          </div>
+                          <div>
+                            <Link
+                              href="#"
+                              className="inline-block py-3 px-4 mr-2 text-xs font-semibold tracking-wide leading-none text-blue-500 rounded border border-blue-200 hover:text-white hover:bg-blue-500 hover:border-blue-500"
+                            >
+                              View Details
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </motion.div>
+                </motion.div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
