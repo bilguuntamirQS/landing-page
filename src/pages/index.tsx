@@ -12,6 +12,9 @@ import eatingSvg from "~/assets/eating.svg";
 import spaceSvg from "~/assets/space.svg";
 import tasksSvg from "~/assets/tasks.svg";
 import { useEffect, useRef, useState } from "react";
+import facebookSvg from "~/assets/facebook-blue.svg";
+import twitterSvg from "~/assets/twitter-blue.svg";
+import instagramSvg from "~/assets/instagram-blue.svg";
 
 interface Product {
   title: string;
@@ -74,7 +77,7 @@ const Home: NextPage = () => {
   useEffect(() => {
     if (carouselRef.current)
       setCarouselWidth(
-        carouselRef.current?.scrollWidth - carouselRef.current?.offsetWidth
+        carouselRef.current.scrollWidth - carouselRef.current.offsetWidth
       );
   }, []);
 
@@ -758,6 +761,71 @@ const Home: NextPage = () => {
             </motion.div>
           </div>
         </div>
+      </section>
+      {/* Footer */}
+      <section className="py-20">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          className="container px-4 mx-auto"
+        >
+          <div className="flex flex-wrap -mx-3 mb-12 text-center lg:mb-20 lg:text-left">
+            <div className="px-3 mb-6 w-full lg:mb-0 lg:w-1/5">
+              <Link
+                href="/"
+                className="inline-block mx-auto text-3xl font-semibold leading-none lg:mx-0"
+              >
+                <Image
+                  className="h-10"
+                  src="https://wp.alithemes.com/html/monst/assets/imgs/logos/monst-logo.svg"
+                  height={40}
+                  width={125.8}
+                  alt="logo"
+                />
+              </Link>
+            </div>
+            <div className="px-3 mb-8 w-full lg:mb-0 lg:w-2/5">
+              <p className="mx-auto max-w-md leading-relaxed lg:pr-32 lg:mx-0 lg:max-w-full lg:text-xl text-blueGray-500">
+                Helping you <strong>maximize</strong> operations management with
+                digitization
+              </p>
+            </div>
+            <div className="px-3 mb-8 w-full lg:mb-0 lg:w-1/5">
+              <p className="mb-2 font-bold lg:mb-4 lg:text-lg font-heading">
+                Office
+              </p>
+              <p className="lg:text-lg text-blueGray-500">
+                359 Hidden Valley Road, NY
+              </p>
+            </div>
+            <div className="px-3 mb-8 w-full lg:mb-0 lg:w-1/5">
+              <p className="mb-2 font-bold lg:mb-4 lg:text-lg font-heading">
+                Contacts
+              </p>
+              <p className="lg:text-lg text-blueGray-500">(+01) 234 568</p>
+              <p className="lg:text-lg text-blueGray-500">contact@monst.com</p>
+            </div>
+          </div>
+          <div className="flex flex-col items-center lg:flex-row lg:justify-between">
+            <p className="text-sm text-blueGray-500">
+              © 2021. All rights reserved. Designed by
+              <Link href="#" className="text-blue-400">
+                Alithemes.com
+              </Link>
+            </p>
+            <div className="order-first -mx-2 mb-4 lg:order-last lg:mb-0">
+              <Link href="#" className="inline-block px-2">
+                <Image src={facebookSvg as string} alt="facebook-logo" />
+              </Link>
+              <Link href="#" className="inline-block px-2">
+                <Image src={twitterSvg as string} alt="facebook-logo" />
+              </Link>
+              <Link href="#" className="inline-block px-2">
+                <Image src={instagramSvg as string} alt="facebook-logo" />
+              </Link>
+            </div>
+          </div>
+        </motion.div>
       </section>
     </>
   );
