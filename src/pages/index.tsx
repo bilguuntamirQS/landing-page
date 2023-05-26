@@ -121,7 +121,7 @@ const Home: NextPage = () => {
                 scroll={false}
                 className="py-4 px-8 mr-2 btn-white"
               >
-                Key Features
+                How We Work?
               </Link>
             </div>
           </div>
@@ -767,6 +767,9 @@ const Home: NextPage = () => {
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
+          transition={{
+            duration: 1,
+          }}
           className="container px-4 mx-auto"
         >
           <div className="flex flex-wrap -mx-3 mb-12 text-center lg:mb-20 lg:text-left">
