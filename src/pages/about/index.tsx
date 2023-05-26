@@ -259,6 +259,102 @@ const About: NextPage = () => {
           </div>
         </div>
       </section>
+      {/* Contact Us */}
+      <section className="pb-20">
+        <div className="container mx-auto">
+          <div className="mx-auto max-w-2xl text-center">
+            <div className="mx-auto mb-8 max-w-md">
+              <span className="inline-block py-1 px-3 text-xs font-semibold text-blue-600 bg-blue-100 rounded-xl">
+                Contact Us
+              </span>
+              <h2 className="mt-2 text-4xl font-bold font-heading">
+                We will<span className="text-blue-500"> be glad</span> to hear
+                from you!
+              </h2>
+            </div>
+            <div>
+              <form>
+                <div className="mb-4 text-sm">
+                  <span className="mr-4 font-semibold">Departament: </span>
+                  <label className="mr-4">
+                    <input
+                      type="radio"
+                      name="department"
+                      value={1}
+                      checked
+                      className="mr-1"
+                    />
+                    <span>Support</span>
+                  </label>
+                  <label>
+                    <input
+                      type="radio"
+                      className="mr-1"
+                      name="department"
+                      value={2}
+                    />
+                    <span>Sales</span>
+                  </label>
+                </div>
+                <div className="mb-4">
+                  <input
+                    type="text"
+                    className="p-4 w-full text-xs font-semibold leading-none rounded outline-none bg-blueGray-50"
+                    placeholder="Subject"
+                  />
+                </div>
+                <div className="mb-4">
+                  <input
+                    type="text"
+                    className="p-4 w-full text-xs font-semibold leading-none rounded outline-none bg-blueGray-50"
+                    placeholder="Name"
+                  />
+                </div>
+                <div className="mb-4">
+                  <input
+                    type="email"
+                    className="p-4 w-full text-xs font-semibold leading-none rounded outline-none bg-blueGray-50"
+                    placeholder="name@example.com"
+                  />
+                </div>
+                <div className="mb-4">
+                  <textarea
+                    className="p-4 w-full text-xs font-semibold leading-none rounded outline-none resize-none bg-blueGray-50"
+                    placeholder="Message..."
+                  />
+                </div>
+                <div className="flex justify-between items-center">
+                  <label className="flex px-2 rounded bg-blueGray-50">
+                    <input className="hidden" type="file" name="Choose file" />
+                    <span className="py-3 px-4 my-1 ml-auto text-xs font-semibold leading-none text-white rounded cursor-pointer bg-blueGray-400 hover:bg-blueGray-600">
+                      Browse
+                    </span>
+                  </label>
+                </div>
+                <div className="flex justify-between items-center">
+                  <label>
+                    <input
+                      className="mr-1"
+                      type="checkbox"
+                      name="terms"
+                      value={1}
+                    />
+                    <span className="text-sm font-semibold">
+                      I agree to terms and conditions.
+                    </span>
+                  </label>
+                  <button
+                    className="py-4 px-8 text-sm font-semibold leading-none text-white bg-blue-500 rounded hover:bg-blue-700"
+                    type="submit"
+                  >
+                    Submit
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 };
