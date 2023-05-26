@@ -1,20 +1,19 @@
 import { type NextPage } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { type Variants, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import Counter from "~/components/counter";
 import dashboardImage from "~/assets/dashboard.png";
 import patternImage from "~/assets/pattern.png";
 import intersectSvg from "~/assets/intersect.svg";
 import featureImage from "~/assets/img-1.png";
 import blobTearSvg from "~/assets/blob-tear.svg";
-import eatingSvg from "~/assets/eating.svg";
-import spaceSvg from "~/assets/space.svg";
-import tasksSvg from "~/assets/tasks.svg";
 import { useEffect, useRef, useState } from "react";
 import facebookSvg from "~/assets/facebook-blue.svg";
 import twitterSvg from "~/assets/twitter-blue.svg";
 import instagramSvg from "~/assets/instagram-blue.svg";
+import { fadeUpMotion } from "~/utils/animation";
+import HowWeWork from "~/components/howWeWork";
 
 interface Product {
   title: string;
@@ -23,27 +22,6 @@ interface Product {
 }
 
 const Home: NextPage = () => {
-  const featuresMotion: Variants = {
-    hidden: {
-      opacity: 0,
-      y: 40,
-    },
-    show: (custom) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: custom * 0.4,
-        duration: 1.2,
-      },
-    }),
-  };
-  const howWeWorkMotion: Variants = {
-    ...featuresMotion,
-    hover: {
-      y: -10,
-    },
-  };
-
   const products: Product[] = [
     {
       title: "New Event",
@@ -281,7 +259,7 @@ const Home: NextPage = () => {
                     Why choose us
                   </motion.span>
                   <motion.h2
-                    variants={featuresMotion}
+                    variants={fadeUpMotion}
                     initial="hidden"
                     whileInView="show"
                     custom={0}
@@ -291,7 +269,7 @@ const Home: NextPage = () => {
                   </motion.h2>
                 </div>
                 <motion.div
-                  variants={featuresMotion}
+                  variants={fadeUpMotion}
                   initial="hidden"
                   whileInView="show"
                   custom={1}
@@ -324,7 +302,7 @@ const Home: NextPage = () => {
                   </div>
                 </motion.div>
                 <motion.div
-                  variants={featuresMotion}
+                  variants={fadeUpMotion}
                   initial="hidden"
                   whileInView="show"
                   custom={2}
@@ -363,7 +341,7 @@ const Home: NextPage = () => {
                   </div>
                 </motion.div>
                 <motion.div
-                  variants={featuresMotion}
+                  variants={fadeUpMotion}
                   initial="hidden"
                   whileInView="show"
                   custom={3}
@@ -447,141 +425,7 @@ const Home: NextPage = () => {
         </div>
       </section>
       {/* How We Work*/}
-      <section className="py-20 bg-blueGray-50" id="how-we-work">
-        <div className="container px-4 mx-auto">
-          <div className="flex flex-wrap justify-between items-center mb-12 max-w-2xl lg:max-w-full">
-            <div className="mb-4 w-full lg:mb-0 lg:w-1/2">
-              <motion.h2
-                variants={{
-                  hidden: {
-                    opacity: 0,
-                    y: -80,
-                  },
-                  show: {
-                    opacity: 1,
-                    y: 0,
-                    transition: {
-                      duration: 0.8,
-                    },
-                  },
-                }}
-                initial="hidden"
-                whileInView="show"
-                className="text-3xl font-bold md:text-4xl font-heading"
-              >
-                We are <span className="text-blue-500">awesome team</span>
-                <br />
-                for your business dream
-              </motion.h2>
-            </div>
-            <div className="w-full lg:pl-16 lg:w-1/2">
-              <motion.p
-                variants={{
-                  hidden: {
-                    opacity: 0,
-                    y: 80,
-                  },
-                  show: {
-                    opacity: 1,
-                    y: 0,
-                    transition: {
-                      duration: 0.8,
-                    },
-                  },
-                }}
-                initial="hidden"
-                whileInView="show"
-                className="leading-loose text-blueGray-400"
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                luctus eget justo et iaculis. Quisque vitae nulla malesuada,
-                auctor arcu vitae, luctus nisi. Sed elementum vitae ligula id
-                imperdiet.
-              </motion.p>
-            </div>
-          </div>
-          <div className="flex flex-wrap -mx-3 -mb-6 text-center">
-            <motion.div
-              variants={howWeWorkMotion}
-              custom={0}
-              initial="hidden"
-              whileInView="show"
-              whileHover="hover"
-              className="px-3 mb-6 w-full md:w-1/2 lg:w-1/3"
-            >
-              <div className="p-12 bg-white rounded shadow">
-                <div className="flex justify-center items-center mx-auto w-12 h-12 font-bold text-blue-800 bg-blue-200 rounded-full font-heading">
-                  1
-                </div>
-                <Image
-                  className="my-4 mx-auto h-48"
-                  src={eatingSvg as string}
-                  alt="eating"
-                />
-                <h3 className="mb-2 font-bold font-heading">
-                  Project Initialization
-                </h3>
-                <p className="text-sm leading-relaxed text-blueGray-400">
-                  Sed ac magna sit amet risus tristique interdum at vel velit.
-                  In hac habitasse platea dictumst.
-                </p>
-              </div>
-            </motion.div>
-            <motion.div
-              variants={howWeWorkMotion}
-              custom={1}
-              initial="hidden"
-              whileInView="show"
-              whileHover="hover"
-              className="px-3 mb-6 w-full md:w-1/2 lg:w-1/3"
-            >
-              <div className="p-12 bg-white rounded shadow">
-                <div className="flex justify-center items-center mx-auto w-12 h-12 font-bold text-blue-800 bg-blue-200 rounded-full font-heading">
-                  2
-                </div>
-                <Image
-                  className="my-4 mx-auto h-48"
-                  src={spaceSvg as string}
-                  alt="space"
-                />
-                <h3 className="mb-2 font-bold font-heading">
-                  Looking for Creative
-                </h3>
-                <p className="text-sm leading-relaxed text-blueGray-400">
-                  Sed ac magna sit amet risus tristique interdum at vel velit.
-                  In hac habitasse platea dictumst.
-                </p>
-              </div>
-            </motion.div>
-            <motion.div
-              variants={howWeWorkMotion}
-              custom={2}
-              initial="hidden"
-              whileInView="show"
-              whileHover="hover"
-              className="px-3 mb-6 w-full md:w-1/2 lg:w-1/3"
-            >
-              <div className="p-12 bg-white rounded shadow">
-                <div className="flex justify-center items-center mx-auto w-12 h-12 font-bold text-blue-800 bg-blue-200 rounded-full font-heading">
-                  3
-                </div>
-                <Image
-                  className="my-4 mx-auto h-48"
-                  src={tasksSvg as string}
-                  alt="space"
-                />
-                <h3 className="mb-2 font-bold font-heading">
-                  Market Development
-                </h3>
-                <p className="text-sm leading-relaxed text-blueGray-400">
-                  Sed ac magna sit amet risus tristique interdum at vel velit.
-                  In hac habitasse platea dictumst.
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+      <HowWeWork />
       {/* Carousel */}
       <section className="py-12 md:py-20">
         <div className="container px-4 mx-auto">
@@ -589,7 +433,7 @@ const Home: NextPage = () => {
             <div className="relative mb-8 w-full text-center lg:mb-0 lg:w-1/3 lg:text-left">
               <div className="mx-auto mb-6 max-w-md lg:pr-16 lg:mb-0 lg:ml-0 lg:max-w-xs">
                 <motion.h2
-                  variants={featuresMotion}
+                  variants={fadeUpMotion}
                   custom={0}
                   initial="hidden"
                   whileInView="show"
@@ -599,7 +443,7 @@ const Home: NextPage = () => {
                   <span className="text-blue-500">Complex</span> Connections
                 </motion.h2>
                 <motion.p
-                  variants={featuresMotion}
+                  variants={fadeUpMotion}
                   custom={1}
                   initial="hidden"
                   whileInView="show"
@@ -709,7 +553,7 @@ const Home: NextPage = () => {
           <div className="relative py-20 px-4 lg:p-20">
             <div className="mx-auto max-w-lg text-center">
               <motion.h2
-                variants={featuresMotion}
+                variants={fadeUpMotion}
                 initial="hidden"
                 whileInView="show"
                 custom={0}
@@ -720,7 +564,7 @@ const Home: NextPage = () => {
                 the Coupon code.
               </motion.h2>
               <motion.p
-                variants={featuresMotion}
+                variants={fadeUpMotion}
                 initial="hidden"
                 whileInView="show"
                 custom={1}
@@ -730,7 +574,7 @@ const Home: NextPage = () => {
               </motion.p>
             </div>
             <motion.div
-              variants={featuresMotion}
+              variants={fadeUpMotion}
               initial="hidden"
               whileInView="show"
               custom={2}
