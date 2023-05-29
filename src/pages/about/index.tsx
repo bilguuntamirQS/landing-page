@@ -2,8 +2,11 @@ import type { NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Counter from "~/components/counter";
-import Expert, { IExpert } from "~/components/expert";
+import Expert, { type IExpert } from "~/components/expert";
 import HowWeWork from "~/components/howWeWork";
+import facebookSvg from "~/assets/facebook-blue.svg";
+import twitterSvg from "~/assets/twitter-blue.svg";
+import instagramSvg from "~/assets/instagram-blue.svg";
 
 const About: NextPage = () => {
   const experts: IExpert[] = [
@@ -281,7 +284,7 @@ const About: NextPage = () => {
                       type="radio"
                       name="department"
                       value={1}
-                      checked
+                      defaultChecked
                       className="mr-1"
                     />
                     <span>Support</span>
@@ -323,8 +326,8 @@ const About: NextPage = () => {
                     placeholder="Message..."
                   />
                 </div>
-                <div className="flex justify-between items-center">
-                  <label className="flex px-2 rounded bg-blueGray-50">
+                <div className="flex justify-between items-center mb-4">
+                  <label className="flex px-2 w-full rounded bg-blueGray-50">
                     <input className="hidden" type="file" name="Choose file" />
                     <span className="py-3 px-4 my-1 ml-auto text-xs font-semibold leading-none text-white rounded cursor-pointer bg-blueGray-400 hover:bg-blueGray-600">
                       Browse
@@ -351,6 +354,238 @@ const About: NextPage = () => {
                   </button>
                 </div>
               </form>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* Subscribe */}
+      <section className="py-20 bg-blue-500">
+        <div className="container mx-auto">
+          <div className="mx-auto max-w-xl text-center">
+            <h2 className="mb-4 text-3xl font-bold text-white font-heading">
+              Subscribe now to{" "}
+              <span className="text-blue-200">Our Newsletter</span>
+              <br />
+              and get the Coupon code.
+            </h2>
+            <p className="mb-8 text-blueGray-200">
+              All your information is completely confidential
+            </p>
+            <div className="flex flex-wrap mx-auto max-w-lg">
+              <div className="flex px-3 mb-3 w-full bg-blue-500 rounded border border-blue-300 md:mr-6 md:mb-0 md:w-2/3">
+                <svg
+                  className="my-auto w-6 h-6 text-blue-300"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                </svg>
+                <input
+                  type="text"
+                  className="py-4 pl-3 w-full text-xs font-semibold leading-none placeholder-white text-white bg-blue-500 outline-none"
+                  placeholder="Type your e-mail"
+                />
+              </div>
+              <button
+                className="py-4 px-8 w-full text-xs font-semibold leading-none text-blue-800 bg-white rounded border border-blue-300 transition duration-300 ease-in-out md:w-auto hover:text-white hover:bg-blue-500 hover:border-white"
+                type="submit"
+              >
+                Sign Up
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* Footer */}
+      <section className="relative">
+        <div className="hidden absolute inset-0 ml-auto w-1/2 lg:block bg-blueGray-50"></div>
+        <div className="container mx-auto">
+          <div className="flex relative flex-wrap -mx-4">
+            <div className="px-4 pt-20 mx-auto w-full max-w-lg text-center lg:mx-0 lg:w-1/2 lg:max-w-full lg:text-left">
+              <Link
+                href="/"
+                className="inline-block mx-auto text-3xl font-semibold leading-none lg:ml-0"
+              >
+                <Image
+                  className="h-10"
+                  src="https://wp.alithemes.com/html/monst/assets/imgs/logos/monst-logo.svg"
+                  height={40}
+                  width={125.8}
+                  alt="logo"
+                />
+              </Link>
+              <div className="mt-12 mb-16">
+                <p className="mb-4 text-xs text-center lg:text-left text-blueGray-400">
+                  Subscribe and stay fully connected with product.
+                </p>
+                <div className="flex flex-wrap items-center lg:flex-nowrap">
+                  <div className="flex px-4 mb-3 w-full rounded lg:mb-0 lg:w-2/3 bg-blueGray-50">
+                    <svg
+                      className="my-auto w-6 h-6"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                      <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                    </svg>
+                    <input
+                      className="py-4 pl-3 w-full text-xs outline-none bg-blueGray-50 text-blueGray-400"
+                      type="text"
+                      placeholder="Type your e-mail"
+                    />
+                  </div>
+                  <button
+                    className="py-4 px-8 w-full text-xs font-semibold leading-none text-white bg-blue-400 rounded lg:ml-6 lg:w-auto hover:bg-blue-500 hover-up-2"
+                    type="submit"
+                  >
+                    Sign Up
+                  </button>
+                </div>
+              </div>
+              <div className="hidden lg:block">
+                <p className="text-xs text-blueGray-400">
+                  © 2021. All rights reserved.
+                </p>
+                <div className="-mx-2 mt-4">
+                  <Link className="inline-block px-2" href="#">
+                    <Image src={facebookSvg as string} alt="facebook-logo" />
+                  </Link>
+                  <Link className="inline-block px-2" href="#">
+                    <Image src={twitterSvg as string} alt="twitter-logo" />
+                  </Link>
+                  <Link className="inline-block px-2" href="#">
+                    <Image src={instagramSvg as string} alt="instagram-logo" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+            <div className="relative px-4 pt-40 w-full lg:pl-12 lg:w-1/2">
+              <div className="flex flex-row flex-wrap justify-around mb-12">
+                <div className="mb-12 w-1/2 lg:w-auto">
+                  <h5 className="mb-6 text-lg font-bold font-heading">About</h5>
+                  <ul className="space-y-3">
+                    <li>
+                      <Link
+                        href="#"
+                        className="text-lg text-blueGray-400 hover:text-blueGray-500"
+                      >
+                        About us
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="#"
+                        className="text-lg text-blueGray-400 hover:text-blueGray-500"
+                      >
+                        Portfolio
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="#"
+                        className="text-lg text-blueGray-400 hover:text-blueGray-500"
+                      >
+                        Services
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="#"
+                        className="text-lg text-blueGray-400 hover:text-blueGray-500"
+                      >
+                        Contact
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+                <div className="mb-12 w-1/2 lg:w-auto">
+                  <h5 className="mb-6 text-lg font-bold font-heading">
+                    Quick Links
+                  </h5>
+                  <ul className="space-y-3">
+                    <li>
+                      <Link
+                        href="#"
+                        className="text-lg text-blueGray-400 hover:text-blueGray-500"
+                      >
+                        Team
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="#"
+                        className="text-lg text-blueGray-400 hover:text-blueGray-500"
+                      >
+                        Pricing
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="#"
+                        className="text-lg text-blueGray-400 hover:text-blueGray-500"
+                      >
+                        Tesimonials
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="#"
+                        className="text-lg text-blueGray-400 hover:text-blueGray-500"
+                      >
+                        Faqs
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+                <div className="mb-12 w-1/2 lg:w-auto">
+                  <h5 className="mb-6 text-lg font-bold font-heading">Blog</h5>
+                  <ul className="space-y-3">
+                    <li>
+                      <Link
+                        href="#"
+                        className="text-lg text-blueGray-400 hover:text-blueGray-500"
+                      >
+                        Business
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="#"
+                        className="text-lg text-blueGray-400 hover:text-blueGray-500"
+                      >
+                        Marketing
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="#"
+                        className="text-lg text-blueGray-400 hover:text-blueGray-500"
+                      >
+                        Single
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="text-center lg:hidden">
+                <p className="text-xs text-blueGray-400">
+                  © 2021. All rights reserved.
+                </p>
+                <div className="-mx-2 mt-4">
+                  <Link className="inline-block px-2" href="#">
+                    <Image src={facebookSvg as string} alt="facebook-logo" />
+                  </Link>
+                  <Link className="inline-block px-2" href="#">
+                    <Image src={twitterSvg as string} alt="twitter-logo" />
+                  </Link>
+                  <Link className="inline-block px-2" href="#">
+                    <Image src={instagramSvg as string} alt="instagram-logo" />
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </div>
