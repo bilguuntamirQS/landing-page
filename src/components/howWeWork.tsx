@@ -1,40 +1,22 @@
 import type { FC } from "react";
-import { type Variants, motion } from "framer-motion";
-import { fadeUpMotion } from "~/utils/animation";
+import { motion } from "framer-motion";
+import { fadeInDown, fadeInUpMotion } from "~/utils/animation";
 import tasksSvg from "~/assets/tasks.svg";
 import eatingSvg from "~/assets/eating.svg";
 import spaceSvg from "~/assets/space.svg";
 import Image from "next/image";
 
 const HowWeWork: FC = () => {
-  const howWeWorkMotion: Variants = {
-    ...fadeUpMotion,
-    hover: {
-      y: -10,
-    },
-  };
-
   return (
     <section className="py-20 bg-blueGray-50" id="how-we-work">
       <div className="container px-4 mx-auto">
         <div className="flex flex-wrap justify-between items-center mb-12 max-w-2xl lg:max-w-full">
           <div className="mb-4 w-full lg:mb-0 lg:w-1/2">
             <motion.h2
-              variants={{
-                hidden: {
-                  opacity: 0,
-                  y: -80,
-                },
-                show: {
-                  opacity: 1,
-                  y: 0,
-                  transition: {
-                    duration: 0.8,
-                  },
-                },
-              }}
+              variants={fadeInDown}
               initial="hidden"
               whileInView="show"
+              viewport={{ once: true }}
               className="text-3xl font-bold md:text-4xl font-heading"
             >
               We are <span className="text-blue-500">awesome team</span>
@@ -44,21 +26,10 @@ const HowWeWork: FC = () => {
           </div>
           <div className="w-full lg:pl-16 lg:w-1/2">
             <motion.p
-              variants={{
-                hidden: {
-                  opacity: 0,
-                  y: 80,
-                },
-                show: {
-                  opacity: 1,
-                  y: 0,
-                  transition: {
-                    duration: 0.8,
-                  },
-                },
-              }}
+              variants={fadeInUpMotion}
               initial="hidden"
               whileInView="show"
+              viewport={{ once: true }}
               className="leading-loose text-blueGray-400"
             >
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
@@ -70,11 +41,12 @@ const HowWeWork: FC = () => {
         </div>
         <div className="flex flex-wrap -mx-3 -mb-6 text-center">
           <motion.div
-            variants={howWeWorkMotion}
-            custom={0}
+            variants={fadeInUpMotion}
+            custom={0.3}
             initial="hidden"
             whileInView="show"
             whileHover="hover"
+            viewport={{ once: true }}
             className="px-3 mb-6 w-full md:w-1/2 lg:w-1/3"
           >
             <div className="p-12 bg-white rounded shadow">
@@ -96,11 +68,12 @@ const HowWeWork: FC = () => {
             </div>
           </motion.div>
           <motion.div
-            variants={howWeWorkMotion}
-            custom={1}
+            variants={fadeInUpMotion}
+            custom={0.5}
             initial="hidden"
             whileInView="show"
             whileHover="hover"
+            viewport={{ once: true }}
             className="px-3 mb-6 w-full md:w-1/2 lg:w-1/3"
           >
             <div className="p-12 bg-white rounded shadow">
@@ -122,11 +95,12 @@ const HowWeWork: FC = () => {
             </div>
           </motion.div>
           <motion.div
-            variants={howWeWorkMotion}
-            custom={2}
+            variants={fadeInUpMotion}
+            custom={0.7}
             initial="hidden"
             whileInView="show"
             whileHover="hover"
+            viewport={{ once: true }}
             className="px-3 mb-6 w-full md:w-1/2 lg:w-1/3"
           >
             <div className="p-12 bg-white rounded shadow">

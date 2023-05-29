@@ -7,6 +7,8 @@ import HowWeWork from "~/components/howWeWork";
 import facebookSvg from "~/assets/facebook-blue.svg";
 import twitterSvg from "~/assets/twitter-blue.svg";
 import instagramSvg from "~/assets/instagram-blue.svg";
+import { motion } from "framer-motion";
+import { MotionLink, fadeInMotion, fadeInUpMotion } from "~/utils/animation";
 
 const About: NextPage = () => {
   const experts: IExpert[] = [
@@ -77,36 +79,57 @@ const About: NextPage = () => {
             <div className="px-3 w-full lg:w-1/2">
               <div className="py-12">
                 <div className="mx-auto mb-8 max-w-lg text-center lg:mx-0 lg:max-w-md lg:text-left">
-                  <h2 className="mb-4 text-3xl font-bold lg:text-4xl font-heading">
+                  <motion.h2
+                    variants={fadeInMotion}
+                    initial="hidden"
+                    animate="show"
+                    className="mb-4 text-3xl font-bold lg:text-4xl font-heading"
+                  >
                     Committed to <span className="text-blue-500">People</span>
                     ,
                     <br />
                     Commited to the Future
-                  </h2>
-                  <p className="leading-relaxed text-blueGray-400">
+                  </motion.h2>
+                  <motion.p
+                    variants={fadeInMotion}
+                    initial="hidden"
+                    animate="show"
+                    className="leading-relaxed text-blueGray-400"
+                  >
                     We are
                     <strong className="text-blue-500">Monst</strong>, a Creative
                     Design
-                  </p>
-                  <p className="leading-relaxed text-blueGray-400">
+                  </motion.p>
+                  <motion.p
+                    variants={fadeInMotion}
+                    initial="hidden"
+                    animate="show"
+                    className="leading-relaxed text-blueGray-400"
+                  >
                     Helping you maximize operations managment with digitization
-                  </p>
+                  </motion.p>
                 </div>
                 <div className="text-center lg:text-left">
-                  <Link
+                  <MotionLink
+                    variants={fadeInUpMotion}
+                    initial="hidden"
+                    animate="show"
                     href="#key-features"
                     scroll={false}
                     className="block py-4 px-8 mb-4 text-xs font-semibold tracking-wide leading-none text-center text-white bg-blue-400 rounded sm:inline-block sm:mr-3 sm:mb-0 hover:bg-blue-500"
                   >
                     Key Features
-                  </Link>
-                  <Link
+                  </MotionLink>
+                  <MotionLink
                     href="#how-we-work"
+                    variants={fadeInUpMotion}
+                    initial="hidden"
+                    animate="show"
                     scroll={false}
                     className="block py-4 px-8 text-xs border sm:inline-block border-blueGray-200 text-blueGray-400 hover:border-blueGray-300 hover:text-blueGray-600"
                   >
                     How We Work?
-                  </Link>
+                  </MotionLink>
                 </div>
               </div>
             </div>
@@ -128,7 +151,13 @@ const About: NextPage = () => {
       <section className="pt-6 pb-2">
         <div className="container px-4 mx-auto">
           <div className="flex flex-wrap justify-between pt-8 pb-16">
-            <div className="flex py-4 w-1/2 lg:w-auto">
+            <motion.div
+              variants={fadeInUpMotion}
+              initial="hidden"
+              animate="show"
+              custom={0.2}
+              className="flex py-4 w-1/2 lg:w-auto"
+            >
               <div className="flex justify-center items-center w-12 h-12 text-blue-500 rounded-xl sm:w-20 sm:h-20 bg-blueGray-50">
                 <svg
                   className="w-8 h-8"
@@ -152,8 +181,14 @@ const About: NextPage = () => {
                   Annual Partner
                 </p>
               </div>
-            </div>
-            <div className="flex py-4 w-1/2 lg:w-auto">
+            </motion.div>
+            <motion.div
+              variants={fadeInUpMotion}
+              initial="hidden"
+              animate="show"
+              custom={0.4}
+              className="flex py-4 w-1/2 lg:w-auto"
+            >
               <div className="flex justify-center items-center w-12 h-12 text-blue-500 rounded-xl sm:w-20 sm:h-20 bg-blueGray-50">
                 <svg
                   className="w-8 h-8"
@@ -178,8 +213,14 @@ const About: NextPage = () => {
                   Completed Projects
                 </p>
               </div>
-            </div>
-            <div className="flex py-4 w-1/2 lg:w-auto">
+            </motion.div>
+            <motion.div
+              variants={fadeInUpMotion}
+              initial="hidden"
+              animate="show"
+              custom={0.6}
+              className="flex py-4 w-1/2 lg:w-auto"
+            >
               <div className="flex justify-center items-center w-12 h-12 text-blue-500 rounded-xl sm:w-20 sm:h-20 bg-blueGray-50">
                 <svg
                   className="w-8 h-8"
@@ -203,8 +244,14 @@ const About: NextPage = () => {
                   Happy Customers
                 </p>
               </div>
-            </div>
-            <div className="flex py-4 w-1/2 lg:w-auto">
+            </motion.div>
+            <motion.div
+              variants={fadeInUpMotion}
+              initial="hidden"
+              animate="show"
+              custom={0.8}
+              className="flex py-4 w-1/2 lg:w-auto"
+            >
               <div className="flex justify-center items-center w-12 h-12 text-blue-500 rounded-xl sm:w-20 sm:h-20 bg-blueGray-50">
                 <svg
                   className="w-8 h-8"
@@ -228,7 +275,7 @@ const About: NextPage = () => {
                   Research Work
                 </p>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -250,13 +297,14 @@ const About: NextPage = () => {
             </p>
           </div>
           <div className="flex flex-wrap -mx-5">
-            {experts.map((i) => (
+            {experts.map((i, index) => (
               <Expert
                 key={`expert-${i.name}`}
                 name={i.name}
                 image={i.image}
                 top={i.top}
                 role={i.role}
+                delay={(index % 4) * 0.2 + 0.1}
               />
             ))}
           </div>
@@ -267,17 +315,37 @@ const About: NextPage = () => {
         <div className="container mx-auto">
           <div className="mx-auto max-w-2xl text-center">
             <div className="mx-auto mb-8 max-w-md">
-              <span className="inline-block py-1 px-3 text-xs font-semibold text-blue-600 bg-blue-100 rounded-xl">
+              <motion.span
+                variants={fadeInUpMotion}
+                initial="hidden"
+                whileInView="show"
+                custom={0.1}
+                viewport={{ once: true }}
+                className="inline-block py-1 px-3 text-xs font-semibold text-blue-600 bg-blue-100 rounded-xl"
+              >
                 Contact Us
-              </span>
-              <h2 className="mt-2 text-4xl font-bold font-heading">
+              </motion.span>
+              <motion.h2
+                variants={fadeInUpMotion}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+                className="mt-2 text-4xl font-bold font-heading"
+              >
                 We will<span className="text-blue-500"> be glad</span> to hear
                 from you!
-              </h2>
+              </motion.h2>
             </div>
             <div>
               <form>
-                <div className="mb-4 text-sm">
+                <motion.div
+                  variants={fadeInUpMotion}
+                  initial="hidden"
+                  whileInView="show"
+                  custom={0.5}
+                  viewport={{ once: true }}
+                  className="mb-4 text-sm"
+                >
                   <span className="mr-4 font-semibold">Departament: </span>
                   <label className="mr-4">
                     <input
@@ -298,43 +366,85 @@ const About: NextPage = () => {
                     />
                     <span>Sales</span>
                   </label>
-                </div>
-                <div className="mb-4">
+                </motion.div>
+                <motion.div
+                  variants={fadeInUpMotion}
+                  initial="hidden"
+                  whileInView="show"
+                  custom={0.3}
+                  viewport={{ once: true }}
+                  className="mb-4"
+                >
                   <input
                     type="text"
                     className="p-4 w-full text-xs font-semibold leading-none rounded outline-none bg-blueGray-50"
                     placeholder="Subject"
                   />
-                </div>
-                <div className="mb-4">
+                </motion.div>
+                <motion.div
+                  variants={fadeInUpMotion}
+                  initial="hidden"
+                  whileInView="show"
+                  custom={0.3}
+                  viewport={{ once: true }}
+                  className="mb-4"
+                >
                   <input
                     type="text"
                     className="p-4 w-full text-xs font-semibold leading-none rounded outline-none bg-blueGray-50"
                     placeholder="Name"
                   />
-                </div>
-                <div className="mb-4">
+                </motion.div>
+                <motion.div
+                  variants={fadeInUpMotion}
+                  initial="hidden"
+                  whileInView="show"
+                  custom={0.3}
+                  viewport={{ once: true }}
+                  className="mb-4"
+                >
                   <input
                     type="email"
                     className="p-4 w-full text-xs font-semibold leading-none rounded outline-none bg-blueGray-50"
                     placeholder="name@example.com"
                   />
-                </div>
-                <div className="mb-4">
+                </motion.div>
+                <motion.div
+                  variants={fadeInUpMotion}
+                  initial="hidden"
+                  whileInView="show"
+                  custom={0.3}
+                  viewport={{ once: true }}
+                  className="mb-4"
+                >
                   <textarea
                     className="p-4 w-full text-xs font-semibold leading-none rounded outline-none resize-none bg-blueGray-50"
                     placeholder="Message..."
                   />
-                </div>
-                <div className="flex justify-between items-center mb-4">
+                </motion.div>
+                <motion.div
+                  variants={fadeInUpMotion}
+                  initial="hidden"
+                  whileInView="show"
+                  custom={0.3}
+                  viewport={{ once: true }}
+                  className="flex justify-between items-center mb-4"
+                >
                   <label className="flex px-2 w-full rounded bg-blueGray-50">
                     <input className="hidden" type="file" name="Choose file" />
                     <span className="py-3 px-4 my-1 ml-auto text-xs font-semibold leading-none text-white rounded cursor-pointer bg-blueGray-400 hover:bg-blueGray-600">
                       Browse
                     </span>
                   </label>
-                </div>
-                <div className="flex justify-between items-center">
+                </motion.div>
+                <motion.div
+                  variants={fadeInUpMotion}
+                  initial="hidden"
+                  whileInView="show"
+                  custom={0.3}
+                  viewport={{ once: true }}
+                  className="flex justify-between items-center"
+                >
                   <label>
                     <input
                       className="mr-1"
@@ -352,7 +462,7 @@ const About: NextPage = () => {
                   >
                     Submit
                   </button>
-                </div>
+                </motion.div>
               </form>
             </div>
           </div>
