@@ -18,7 +18,6 @@ import {
   fadeInMotion,
   fadeInRight,
   fadeInUpMotion,
-  fadeUpMotion,
   jumpMotion,
 } from "~/utils/animation";
 import HowWeWork from "~/components/howWeWork";
