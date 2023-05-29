@@ -24,13 +24,38 @@ export const fadeInMotion: Variants = {
   },
   show: {
     opacity: 1,
+    transition: {
+      duration: 1,
+    },
   },
 };
 
 export const fadeInUpMotion: Variants = {
   hidden: {
     opacity: 0,
-    y: 100,
+    y: "100%",
+  },
+  show: (custom: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "just",
+      delay: custom,
+      duration: 1,
+    },
+  }),
+  hover: {
+    y: "-5px",
+    transition: {
+      duration: 0.3,
+    },
+  },
+};
+
+export const fadeInDown: Variants = {
+  hidden: {
+    opacity: 0,
+    y: -100,
   },
   show: (custom: number) => ({
     opacity: 1,
@@ -40,22 +65,35 @@ export const fadeInUpMotion: Variants = {
       delay: custom,
     },
   }),
-  hover: {
-    y: "-5px",
-    transitionDuration: "0.3s",
-  },
 };
 
-export const fadeInDown: Variants = {
+export const fadeInRight: Variants = {
   hidden: {
     opacity: 0,
-    y: -100,
+    x: "100%",
   },
-  show: {
+  show: (custom: number) => ({
     opacity: 1,
-    y: 0,
+    x: 0,
     transition: {
       type: "just",
+      delay: custom,
+      duration: 1,
+    },
+  }),
+};
+
+export const jumpMotion: Variants = {
+  hidden: {
+    y: "15px",
+  },
+  show: {
+    y: 0,
+    transition: {
+      duration: 1,
+      repeat: Infinity,
+      repeatType: "reverse",
+      ease: "linear",
     },
   },
 };

@@ -12,7 +12,15 @@ import { useEffect, useRef, useState } from "react";
 import facebookSvg from "~/assets/facebook-blue.svg";
 import twitterSvg from "~/assets/twitter-blue.svg";
 import instagramSvg from "~/assets/instagram-blue.svg";
-import { fadeUpMotion } from "~/utils/animation";
+import {
+  MotionLink,
+  fadeInDown,
+  fadeInMotion,
+  fadeInRight,
+  fadeInUpMotion,
+  fadeUpMotion,
+  jumpMotion,
+} from "~/utils/animation";
 import HowWeWork from "~/components/howWeWork";
 
 interface Product {
@@ -63,48 +71,60 @@ const Home: NextPage = () => {
     <>
       {/* Hero */}
       <section
-        className="pt-24 -mt-24 bg-top bg-no-repeat xl:bg-contain"
+        className="-mt-24 bg-top bg-no-repeat pt-24 xl:bg-contain"
         style={{
           backgroundImage: `url(${(intersectSvg as { src: string }).src})`,
         }}
       >
-        <div className="container px-4 mx-auto">
+        <div className="container mx-auto px-4">
           <div className="pt-12 text-center">
             <div className="mx-auto mb-8 max-w-2xl">
               <motion.h2
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.8 }}
-                className="mb-4 text-3xl font-bold lg:text-5xl lg:leading-normal font-heading"
+                variants={fadeInMotion}
+                initial="hidden"
+                animate="show"
+                className="mb-4 font-heading text-3xl font-bold lg:text-5xl lg:leading-normal"
               >
                 Committed to People
                 <br />
                 Commited <span className="text-blue-500">to the Future</span>
               </motion.h2>
-              <p className="leading-relaxed text-blueGray-400">
+              <motion.p
+                variants={fadeInMotion}
+                initial="hidden"
+                animate="show"
+                className="leading-relaxed text-blueGray-400"
+              >
                 We are <strong className="text-blue-500">Monst</strong>, a
                 Creative Design{" "}
-              </p>
+              </motion.p>
             </div>
             <div>
-              <Link
+              <MotionLink
+                variants={fadeInUpMotion}
+                initial="hidden"
+                animate="show"
                 href="/#key-features"
                 scroll={false}
-                className="py-4 px-8 mr-2 btn-primary"
+                className="btn-primary mr-2 px-8 py-4"
               >
                 Key Features
-              </Link>
-              <Link
+              </MotionLink>
+              <MotionLink
+                variants={fadeInUpMotion}
+                initial="hidden"
+                animate="show"
+                custom={0.3}
                 href="/#how-we-work"
                 scroll={false}
-                className="py-4 px-8 mr-2 btn-white"
+                className="btn-white mr-2 px-8 py-4"
               >
                 How We Work?
-              </Link>
+              </MotionLink>
             </div>
           </div>
         </div>
-        <div className="relative mx-auto mt-16 mb-8 max-w-6xl md:mt-8">
+        <div className="relative mx-auto mb-8 mt-16 max-w-6xl md:mt-8">
           <Image
             src={patternImage}
             alt="pattern"
@@ -113,14 +133,9 @@ const Home: NextPage = () => {
             height={485}
           />
           <motion.div
-            animate={{
-              y: -20,
-            }}
-            transition={{
-              repeat: Infinity,
-              duration: 1.2,
-              repeatType: "mirror",
-            }}
+            variants={jumpMotion}
+            initial="hidden"
+            animate="show"
             className="absolute left-[14%] top-[9%] h-[66%] w-[72%]"
           >
             <Image
@@ -132,12 +147,19 @@ const Home: NextPage = () => {
             />
           </motion.div>
         </div>
-        <div className="container px-4 mx-auto">
-          <div className="flex flex-wrap justify-between pt-8 pb-16">
-            <div className="flex py-4 w-1/2 lg:w-auto">
-              <div className="flex justify-center items-center w-12 h-12 text-blue-500 rounded-xl sm:w-20 sm:h-20 bg-blueGray-50">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-wrap justify-between pb-16 pt-8">
+            <motion.div
+              variants={fadeInUpMotion}
+              initial="hidden"
+              animate="show"
+              custom={0.2}
+              whileHover="hover"
+              className="flex w-1/2 py-4 lg:w-auto"
+            >
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blueGray-50 text-blue-500 sm:h-20 sm:w-20">
                 <svg
-                  className="w-8 h-8"
+                  className="h-8 w-8"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -151,18 +173,25 @@ const Home: NextPage = () => {
                   ></path>
                 </svg>
               </div>
-              <div className="ml-2 sm:py-2 sm:ml-6">
-                <span className="font-bold sm:text-2xl font-heading">+ </span>
+              <div className="ml-2 sm:ml-6 sm:py-2">
+                <span className="font-heading font-bold sm:text-2xl">+ </span>
                 <Counter to={150} />
-                <p className="text-xs sm:text-base text-blueGray-400">
+                <p className="text-xs text-blueGray-400 sm:text-base">
                   Annual Partner
                 </p>
               </div>
-            </div>
-            <div className="flex py-4 w-1/2 lg:w-auto">
-              <div className="flex justify-center items-center w-12 h-12 text-blue-500 rounded-xl sm:w-20 sm:h-20 bg-blueGray-50">
+            </motion.div>
+            <motion.div
+              variants={fadeInUpMotion}
+              initial="hidden"
+              animate="show"
+              custom={0.4}
+              whileHover="hover"
+              className="flex w-1/2 py-4 lg:w-auto"
+            >
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blueGray-50 text-blue-500 sm:h-20 sm:w-20">
                 <svg
-                  className="w-8 h-8"
+                  className="h-8 w-8"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -176,19 +205,26 @@ const Home: NextPage = () => {
                   ></path>
                 </svg>
               </div>
-              <div className="ml-2 sm:py-2 sm:ml-6">
-                <span className="font-bold sm:text-2xl font-heading">+ </span>
+              <div className="ml-2 sm:ml-6 sm:py-2">
+                <span className="font-heading font-bold sm:text-2xl">+ </span>
                 <Counter to={57} />
-                <span className="font-bold sm:text-2xl font-heading"> K</span>
-                <p className="text-xs sm:text-base text-blueGray-400">
+                <span className="font-heading font-bold sm:text-2xl"> K</span>
+                <p className="text-xs text-blueGray-400 sm:text-base">
                   Completed Projects
                 </p>
               </div>
-            </div>
-            <div className="flex py-4 w-1/2 lg:w-auto">
-              <div className="flex justify-center items-center w-12 h-12 text-blue-500 rounded-xl sm:w-20 sm:h-20 bg-blueGray-50">
+            </motion.div>
+            <motion.div
+              variants={fadeInUpMotion}
+              initial="hidden"
+              animate="show"
+              custom={0.6}
+              whileHover="hover"
+              className="flex w-1/2 py-4 lg:w-auto"
+            >
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blueGray-50 text-blue-500 sm:h-20 sm:w-20">
                 <svg
-                  className="w-8 h-8"
+                  className="h-8 w-8"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -202,18 +238,25 @@ const Home: NextPage = () => {
                   ></path>
                 </svg>
               </div>
-              <div className="ml-2 sm:py-2 sm:ml-6">
-                <span className="font-bold sm:text-2xl font-heading">+ </span>
+              <div className="ml-2 sm:ml-6 sm:py-2">
+                <span className="font-heading font-bold sm:text-2xl">+ </span>
                 <Counter to={500} />
-                <p className="text-xs sm:text-base text-blueGray-400">
+                <p className="text-xs text-blueGray-400 sm:text-base">
                   Happy Customers
                 </p>
               </div>
-            </div>
-            <div className="flex py-4 w-1/2 lg:w-auto">
-              <div className="flex justify-center items-center w-12 h-12 text-blue-500 rounded-xl sm:w-20 sm:h-20 bg-blueGray-50">
+            </motion.div>
+            <motion.div
+              variants={fadeInUpMotion}
+              initial="hidden"
+              animate="show"
+              custom={0.8}
+              whileHover="hover"
+              className="flex w-1/2 py-4 lg:w-auto"
+            >
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blueGray-50 text-blue-500 sm:h-20 sm:w-20">
                 <svg
-                  className="w-8 h-8"
+                  className="h-8 w-8"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -227,14 +270,14 @@ const Home: NextPage = () => {
                   ></path>
                 </svg>
               </div>
-              <div className="ml-2 sm:py-2 sm:ml-6">
-                <span className="font-bold sm:text-2xl font-heading">+ </span>
+              <div className="ml-2 sm:ml-6 sm:py-2">
+                <span className="font-heading font-bold sm:text-2xl">+ </span>
                 <Counter to={320} />
-                <p className="text-xs sm:text-base text-blueGray-400">
+                <p className="text-xs text-blueGray-400 sm:text-base">
                   Research Work
                 </p>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -243,41 +286,49 @@ const Home: NextPage = () => {
         className="overflow-x-hidden py-12 md:py-16 lg:py-32"
         id="key-features"
       >
-        <div className="container px-4 mx-auto">
+        <div className="container mx-auto px-4">
           <div className="flex flex-wrap lg:flex-none">
             <div className="w-full lg:w-1/2">
-              <motion.div className="lg:py-6 lg:pr-32">
+              <motion.div
+                variants={fadeInMotion}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+                className="lg:py-6 lg:pr-32"
+              >
                 <div className="mb-4">
                   <motion.span
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{
-                      duration: 1.2,
-                    }}
-                    className="py-1 px-3 text-xs font-semibold text-blue-500 bg-blue-50 rounded-xl"
+                    variants={fadeInDown}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true }}
+                    custom={0.9}
+                    className="rounded-xl bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-500"
                   >
                     Why choose us
                   </motion.span>
                   <motion.h2
-                    variants={fadeUpMotion}
+                    variants={fadeInUpMotion}
                     initial="hidden"
                     whileInView="show"
-                    custom={0}
-                    className="mt-5 text-4xl font-bold font-heading"
+                    viewport={{ once: true }}
+                    custom={0.3}
+                    className="mt-5 font-heading text-4xl font-bold"
                   >
                     Key Features
                   </motion.h2>
                 </div>
                 <motion.div
-                  variants={fadeUpMotion}
+                  variants={fadeInUpMotion}
                   initial="hidden"
                   whileInView="show"
-                  custom={1}
+                  custom={0.5}
+                  viewport={{ once: true }}
                   className="flex items-start py-4"
                 >
                   <div className="mr-5 w-8 text-blue-500">
                     <svg
-                      className="w-6 h-6"
+                      className="h-6 w-6"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -292,7 +343,7 @@ const Home: NextPage = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="mb-2 text-xl font-semibold font-heading">
+                    <h3 className="mb-2 font-heading text-xl font-semibold">
                       Expand Your Reach
                     </h3>
                     <p className="leading-loose text-blueGray-400">
@@ -302,15 +353,16 @@ const Home: NextPage = () => {
                   </div>
                 </motion.div>
                 <motion.div
-                  variants={fadeUpMotion}
+                  variants={fadeInUpMotion}
                   initial="hidden"
                   whileInView="show"
-                  custom={2}
+                  viewport={{ once: true }}
+                  custom={0.7}
                   className="flex items-start py-4"
                 >
                   <div className="mr-5 w-8 text-blue-500">
                     <svg
-                      className="w-6 h-6"
+                      className="h-6 w-6"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -331,7 +383,7 @@ const Home: NextPage = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="mb-2 text-xl font-semibold font-heading">
+                    <h3 className="mb-2 font-heading text-xl font-semibold">
                       Annualized Growth
                     </h3>
                     <p className="leading-loose text-blueGray-400">
@@ -341,15 +393,16 @@ const Home: NextPage = () => {
                   </div>
                 </motion.div>
                 <motion.div
-                  variants={fadeUpMotion}
+                  variants={fadeInUpMotion}
                   initial="hidden"
                   whileInView="show"
-                  custom={3}
+                  viewport={{ once: true }}
+                  custom={0.9}
                   className="flex items-start py-4"
                 >
                   <div className="mr-5 w-8 text-blue-500">
                     <svg
-                      className="w-6 h-6"
+                      className="h-6 w-6"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -364,7 +417,7 @@ const Home: NextPage = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="mb-2 text-xl font-semibold font-heading">
+                    <h3 className="mb-2 font-heading text-xl font-semibold">
                       Book Your Providers
                     </h3>
                     <p className="leading-loose text-blueGray-400">
@@ -376,31 +429,19 @@ const Home: NextPage = () => {
               </motion.div>
             </div>
             <div className="relative my-12 w-full lg:my-0 lg:w-1/2">
-              <motion.div>
+              <motion.div
+                variants={fadeInRight}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+                custom={0.5}
+              >
                 <motion.div
-                  animate={{
-                    y: -20,
-                  }}
-                  initial={{
-                    opacity: 0,
-                    x: 300,
-                  }}
-                  whileInView={{
-                    opacity: 1,
-                    x: 0,
-                  }}
+                  variants={jumpMotion}
+                  initial="hidden"
+                  whileInView="show"
                   viewport={{
                     once: true,
-                  }}
-                  transition={{
-                    y: {
-                      repeat: Infinity,
-                      duration: 1.2,
-                      repeatType: "mirror",
-                    },
-                    x: {
-                      duration: 1.2,
-                    },
                   }}
                 >
                   <Image
@@ -410,12 +451,12 @@ const Home: NextPage = () => {
                   />
                 </motion.div>
                 <Image
-                  className="absolute top-0 left-0 -mt-12 -ml-12 w-40"
+                  className="absolute left-0 top-0 -ml-12 -mt-12 w-40"
                   src={blobTearSvg as string}
                   alt="blog-tear"
                 />
                 <Image
-                  className="absolute right-0 bottom-0 -mr-12 -mb-12 w-40"
+                  className="absolute bottom-0 right-0 -mb-12 -mr-12 w-40"
                   src={blobTearSvg as string}
                   alt="blob-tear"
                 />
@@ -428,26 +469,28 @@ const Home: NextPage = () => {
       <HowWeWork />
       {/* Carousel */}
       <section className="py-12 md:py-20">
-        <div className="container px-4 mx-auto">
-          <div className="flex flex-wrap -mx-3">
+        <div className="container mx-auto px-4">
+          <div className="-mx-3 flex flex-wrap">
             <div className="relative mb-8 w-full text-center lg:mb-0 lg:w-1/3 lg:text-left">
-              <div className="mx-auto mb-6 max-w-md lg:pr-16 lg:mb-0 lg:ml-0 lg:max-w-xs">
+              <div className="mx-auto mb-6 max-w-md lg:mb-0 lg:ml-0 lg:max-w-xs lg:pr-16">
                 <motion.h2
-                  variants={fadeUpMotion}
-                  custom={0}
+                  variants={fadeInUpMotion}
+                  custom={0.3}
                   initial="hidden"
                   whileInView="show"
-                  className="mb-4 text-3xl font-bold md:text-4xl font-heading"
+                  viewport={{ once: true }}
+                  className="mb-4 font-heading text-3xl font-bold md:text-4xl"
                 >
                   Simple Solution for{" "}
                   <span className="text-blue-500">Complex</span> Connections
                 </motion.h2>
                 <motion.p
-                  variants={fadeUpMotion}
-                  custom={1}
+                  variants={fadeInUpMotion}
+                  custom={0.9}
                   initial="hidden"
                   whileInView="show"
-                  className="text-xs leading-loose md:text-base text-blueGray-400"
+                  viewport={{ once: true }}
+                  className="text-xs leading-loose text-blueGray-400 md:text-base"
                 >
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
                   luctus eget justo et iaculis.
@@ -455,9 +498,9 @@ const Home: NextPage = () => {
               </div>
               <div className="flex justify-center lg:absolute lg:bottom-0 lg:left-0">
                 <div className="flex">
-                  <span className="flex p-3 mr-4 text-blue-500 cursor-pointer">
+                  <span className="mr-4 flex cursor-pointer p-3 text-blue-500">
                     <svg
-                      className="w-6 h-6"
+                      className="h-6 w-6"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -471,9 +514,9 @@ const Home: NextPage = () => {
                       ></path>
                     </svg>
                   </span>
-                  <span className="flex p-3 mr-4 text-blue-500 cursor-pointer">
+                  <span className="mr-4 flex cursor-pointer p-3 text-blue-500">
                     <svg
-                      className="w-6 h-6"
+                      className="h-6 w-6"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -490,11 +533,11 @@ const Home: NextPage = () => {
                 </div>
               </div>
             </div>
-            <div className="flex flex-wrap w-full lg:w-2/3">
+            <div className="flex w-full flex-wrap lg:w-2/3">
               <div className="relative w-full">
                 <motion.div
                   ref={carouselRef}
-                  className="overflow-hidden cursor-grab"
+                  className="cursor-grab overflow-hidden"
                   whileTap={{ cursor: "grabbing" }}
                 >
                   <motion.div
@@ -505,16 +548,16 @@ const Home: NextPage = () => {
                     {products.map((i, index) => (
                       <div
                         key={`product-${index}`}
-                        className="border group border-blueGray-100"
+                        className="group border border-blueGray-100"
                       >
                         <Image
                           src={i.image}
                           alt="product"
                           width={249}
                           height={340.98}
-                          className="rounded-xl pointer-events-none min-w-[20rem] overflow-clip"
+                          className="pointer-events-none min-w-[20rem] overflow-clip rounded-xl"
                         />
-                        <div className="flex justify-between items-end">
+                        <div className="flex items-end justify-between">
                           <div>
                             <h1 className="mt-5 text-xl font-semibold group-hover:text-blue-500">
                               {i.title}
@@ -526,7 +569,7 @@ const Home: NextPage = () => {
                           <div>
                             <Link
                               href="#"
-                              className="inline-block py-3 px-4 mr-2 text-xs font-semibold tracking-wide leading-none text-blue-500 rounded border border-blue-200 hover:text-white hover:bg-blue-500 hover:border-blue-500"
+                              className="mr-2 inline-block rounded border border-blue-200 px-4 py-3 text-xs font-semibold leading-none tracking-wide text-blue-500 hover:border-blue-500 hover:bg-blue-500 hover:text-white"
                             >
                               View Details
                             </Link>
@@ -543,46 +586,48 @@ const Home: NextPage = () => {
       </section>
       {/* World */}
       <section
-        className="py-20 bg-top bg-no-repeat"
+        className="bg-top bg-no-repeat py-20"
         style={{
           backgroundImage:
             "url(https://wp.alithemes.com/html/monst/assets/imgs/elements/blob.svg)",
         }}
       >
-        <div className="container px-4 mx-auto">
-          <div className="relative py-20 px-4 lg:p-20">
+        <div className="container mx-auto px-4">
+          <div className="relative px-4 py-20 lg:p-20">
             <div className="mx-auto max-w-lg text-center">
               <motion.h2
-                variants={fadeUpMotion}
+                variants={fadeInUpMotion}
                 initial="hidden"
                 whileInView="show"
-                custom={0}
-                className="mb-4 text-3xl font-bold lg:text-4xl font-heading"
+                viewport={{ once: true }}
+                className="mb-4 font-heading text-3xl font-bold lg:text-4xl"
               >
                 Subscribe now to{" "}
                 <span className="text-blue-500">Our Newsletter</span> and get
                 the Coupon code.
               </motion.h2>
               <motion.p
-                variants={fadeUpMotion}
+                variants={fadeInUpMotion}
                 initial="hidden"
                 whileInView="show"
-                custom={1}
+                viewport={{ once: true }}
+                custom={0.3}
                 className="mb-8 text-blueGray-400"
               >
                 All your information is completely confidential
               </motion.p>
             </div>
             <motion.div
-              variants={fadeUpMotion}
+              variants={fadeInUpMotion}
               initial="hidden"
               whileInView="show"
-              custom={2}
-              className="flex flex-wrap p-4 mx-auto max-w-md bg-white rounded-lg"
+              viewport={{ once: true }}
+              custom={0.5}
+              className="mx-auto flex max-w-md flex-wrap rounded-lg bg-white p-4"
             >
-              <div className="flex px-3 mb-3 w-full rounded md:mr-6 md:mb-0 md:w-2/3 bg-blueGray-100">
+              <div className="mb-3 flex w-full rounded bg-blueGray-100 px-3 md:mb-0 md:mr-6 md:w-2/3">
                 <svg
-                  className="my-auto w-6 h-6 text-blueGray-400"
+                  className="my-auto h-6 w-6 text-blueGray-400"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                   fill="currentColor"
@@ -591,13 +636,13 @@ const Home: NextPage = () => {
                   <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
                 </svg>
                 <input
-                  className="py-4 pl-3 w-full text-xs font-semibold leading-none outline-none bg-blueGray-100 text-blueGray-500"
+                  className="w-full bg-blueGray-100 py-4 pl-3 text-xs font-semibold leading-none text-blueGray-500 outline-none"
                   type="text"
                   placeholder="Type your e-mail"
                 />
               </div>
               <button
-                className="py-4 px-8 w-full text-xs font-semibold leading-none text-white bg-blue-500 rounded md:w-auto hover:bg-blue-500"
+                className="w-full rounded bg-blue-500 px-8 py-4 text-xs font-semibold leading-none text-white hover:bg-blue-500 md:w-auto"
                 type="submit"
               >
                 Sign Up
@@ -614,13 +659,13 @@ const Home: NextPage = () => {
           transition={{
             duration: 1,
           }}
-          className="container px-4 mx-auto"
+          className="container mx-auto px-4"
         >
-          <div className="flex flex-wrap -mx-3 mb-12 text-center lg:mb-20 lg:text-left">
-            <div className="px-3 mb-6 w-full lg:mb-0 lg:w-1/5">
+          <div className="-mx-3 mb-12 flex flex-wrap text-center lg:mb-20 lg:text-left">
+            <div className="mb-6 w-full px-3 lg:mb-0 lg:w-1/5">
               <Link
                 href="/"
-                className="inline-block mx-auto text-3xl font-semibold leading-none lg:mx-0"
+                className="mx-auto inline-block text-3xl font-semibold leading-none lg:mx-0"
               >
                 <Image
                   className="h-10"
@@ -631,26 +676,26 @@ const Home: NextPage = () => {
                 />
               </Link>
             </div>
-            <div className="px-3 mb-8 w-full lg:mb-0 lg:w-2/5">
-              <p className="mx-auto max-w-md leading-relaxed lg:pr-32 lg:mx-0 lg:max-w-full lg:text-xl text-blueGray-400">
+            <div className="mb-8 w-full px-3 lg:mb-0 lg:w-2/5">
+              <p className="mx-auto max-w-md leading-relaxed text-blueGray-400 lg:mx-0 lg:max-w-full lg:pr-32 lg:text-xl">
                 Helping you <strong>maximize</strong> operations management with
                 digitization
               </p>
             </div>
-            <div className="px-3 mb-8 w-full lg:mb-0 lg:w-1/5">
-              <p className="mb-2 font-bold lg:mb-4 lg:text-lg font-heading">
+            <div className="mb-8 w-full px-3 lg:mb-0 lg:w-1/5">
+              <p className="mb-2 font-heading font-bold lg:mb-4 lg:text-lg">
                 Office
               </p>
-              <p className="lg:text-lg text-blueGray-400">
+              <p className="text-blueGray-400 lg:text-lg">
                 359 Hidden Valley Road, NY
               </p>
             </div>
-            <div className="px-3 mb-8 w-full lg:mb-0 lg:w-1/5">
-              <p className="mb-2 font-bold lg:mb-4 lg:text-lg font-heading">
+            <div className="mb-8 w-full px-3 lg:mb-0 lg:w-1/5">
+              <p className="mb-2 font-heading font-bold lg:mb-4 lg:text-lg">
                 Contacts
               </p>
-              <p className="lg:text-lg text-blueGray-400">(+01) 234 568</p>
-              <p className="lg:text-lg text-blueGray-400">contact@monst.com</p>
+              <p className="text-blueGray-400 lg:text-lg">(+01) 234 568</p>
+              <p className="text-blueGray-400 lg:text-lg">contact@monst.com</p>
             </div>
           </div>
           <div className="flex flex-col items-center lg:flex-row lg:justify-between">
