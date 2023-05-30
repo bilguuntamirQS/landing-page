@@ -9,6 +9,8 @@ import twitterSvg from "~/assets/twitter-blue.svg";
 import instagramSvg from "~/assets/instagram-blue.svg";
 import Link from "next/link";
 import Title from "~/components/title";
+import GetInTouch from "~/components/get-in-touch";
+import Footer from "~/components/footer";
 
 interface ExpertProps {
   img: string;
@@ -243,6 +245,8 @@ const Team: NextPage = () => {
           </div>
         </div>
       </section>
+      <GetInTouch />
+      <Footer />
     </>
   );
 };
