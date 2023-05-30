@@ -7,10 +7,17 @@ export const fadeInMotion: Variants = {
   hidden: {
     opacity: 0,
   },
-  show: {
+  show: (custom: number) => ({
     opacity: 1,
     transition: {
       duration: 1,
+      delay: custom,
+    },
+  }),
+  hover: {
+    y: "-5px",
+    transition: {
+      duration: 0.3,
     },
   },
 };

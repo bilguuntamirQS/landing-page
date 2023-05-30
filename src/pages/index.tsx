@@ -75,7 +75,7 @@ const Home: NextPage = () => {
           backgroundImage: `url(${(intersectSvg as { src: string }).src})`,
         }}
       >
-        <div className="container mx-auto px-4">
+        <div className="">
           <div className="pt-12 text-center">
             <div className="mx-auto mb-8 max-w-2xl">
               <motion.h2
@@ -146,7 +146,7 @@ const Home: NextPage = () => {
             />
           </motion.div>
         </div>
-        <div className="container mx-auto px-4">
+        <div className="container">
           <div className="flex flex-wrap justify-between pb-16 pt-8">
             <motion.div
               variants={fadeInUpMotion}
@@ -285,7 +285,7 @@ const Home: NextPage = () => {
         className="overflow-x-hidden py-12 md:py-16 lg:py-32"
         id="key-features"
       >
-        <div className="container mx-auto px-4">
+        <div className="container">
           <div className="flex flex-wrap lg:flex-none">
             <div className="w-full lg:w-1/2">
               <motion.div
@@ -468,7 +468,7 @@ const Home: NextPage = () => {
       <HowWeWork />
       {/* Carousel */}
       <section className="py-12 md:py-20">
-        <div className="container mx-auto px-4">
+        <div className="container">
           <div className="-mx-3 flex flex-wrap">
             <div className="relative mb-8 w-full text-center lg:mb-0 lg:w-1/3 lg:text-left">
               <div className="mx-auto mb-6 max-w-md lg:mb-0 lg:ml-0 lg:max-w-xs lg:pr-16">
@@ -591,7 +591,7 @@ const Home: NextPage = () => {
             "url(https://wp.alithemes.com/html/monst/assets/imgs/elements/blob.svg)",
         }}
       >
-        <div className="container mx-auto px-4">
+        <div className="container">
           <div className="relative px-4 py-20 lg:p-20">
             <div className="mx-auto max-w-lg text-center">
               <motion.h2
@@ -658,7 +658,7 @@ const Home: NextPage = () => {
           transition={{
             duration: 1,
           }}
-          className="container mx-auto px-4"
+          className="container"
         >
           <div className="-mx-3 mb-12 flex flex-wrap text-center lg:mb-20 lg:text-left">
             <div className="mb-6 w-full px-3 lg:mb-0 lg:w-1/5">

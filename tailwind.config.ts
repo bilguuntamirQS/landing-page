@@ -20,6 +20,13 @@ export default {
         heading: "Poppins, sans-serif",
         body: "Montserrat, sans-serif",
       },
+      container: {
+        center: true,
+        padding: "1rem",
+      },
+      height: {
+        128: "32rem",
+      },
     },
   },
   plugins: [],

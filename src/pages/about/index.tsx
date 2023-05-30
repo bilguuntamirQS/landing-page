@@ -69,21 +69,21 @@ const About: NextPage = () => {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-24 -mt-24">
+      <section className="relative -mt-24 pt-24">
         <div
-          className="hidden absolute inset-0 z-0 ml-auto w-1/2 lg:block bg-blueGray-100"
+          className="absolute inset-0 z-0 ml-auto hidden w-1/2 bg-blueGray-100 lg:block"
           style={{ zIndex: -1 }}
         ></div>
-        <div className="container mx-auto">
-          <div className="flex flex-wrap items-center -mx-3">
-            <div className="px-3 w-full lg:w-1/2">
+        <div className="container">
+          <div className="-mx-3 flex flex-wrap items-center">
+            <div className="w-full px-3 lg:w-1/2">
               <div className="py-12">
                 <div className="mx-auto mb-8 max-w-lg text-center lg:mx-0 lg:max-w-md lg:text-left">
                   <motion.h2
                     variants={fadeInMotion}
                     initial="hidden"
                     animate="show"
-                    className="mb-4 text-3xl font-bold lg:text-4xl font-heading"
+                    className="mb-4 font-heading text-3xl font-bold lg:text-4xl"
                   >
                     Committed to <span className="text-blue-500">People</span>
                     ,
@@ -116,7 +116,7 @@ const About: NextPage = () => {
                     animate="show"
                     href="#key-features"
                     scroll={false}
-                    className="block py-4 px-8 mb-4 text-xs font-semibold tracking-wide leading-none text-center text-white bg-blue-400 rounded sm:inline-block sm:mr-3 sm:mb-0 hover:bg-blue-500"
+                    className="mb-4 block rounded bg-blue-400 px-8 py-4 text-center text-xs font-semibold leading-none tracking-wide text-white hover:bg-blue-500 sm:mb-0 sm:mr-3 sm:inline-block"
                   >
                     Key Features
                   </MotionLink>
@@ -126,15 +126,15 @@ const About: NextPage = () => {
                     initial="hidden"
                     animate="show"
                     scroll={false}
-                    className="block py-4 px-8 text-xs border sm:inline-block border-blueGray-200 text-blueGray-400 hover:border-blueGray-300 hover:text-blueGray-600"
+                    className="block border border-blueGray-200 px-8 py-4 text-xs text-blueGray-400 hover:border-blueGray-300 hover:text-blueGray-600 sm:inline-block"
                   >
                     How We Work?
                   </MotionLink>
                 </div>
               </div>
             </div>
-            <div className="px-3 pb-10 mb-12 w-full lg:mb-0 lg:w-1/2 lg:bg-blueGray-100">
-              <div className="flex justify-center items-center">
+            <div className="mb-12 w-full px-3 pb-10 lg:mb-0 lg:w-1/2 lg:bg-blueGray-100">
+              <div className="flex items-center justify-center">
                 <Image
                   className="lg:max-w-lg"
                   src="https://wp.alithemes.com/html/monst/assets/imgs/illustrations/team.svg"
@@ -148,19 +148,19 @@ const About: NextPage = () => {
         </div>
       </section>
       {/* Counter */}
-      <section className="pt-6 pb-2">
-        <div className="container px-4 mx-auto">
-          <div className="flex flex-wrap justify-between pt-8 pb-16">
+      <section className="pb-2 pt-6">
+        <div className="container">
+          <div className="flex flex-wrap justify-between pb-16 pt-8">
             <motion.div
               variants={fadeInUpMotion}
               initial="hidden"
               animate="show"
               custom={0.2}
-              className="flex py-4 w-1/2 lg:w-auto"
+              className="flex w-1/2 py-4 lg:w-auto"
             >
-              <div className="flex justify-center items-center w-12 h-12 text-blue-500 rounded-xl sm:w-20 sm:h-20 bg-blueGray-50">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blueGray-50 text-blue-500 sm:h-20 sm:w-20">
                 <svg
-                  className="w-8 h-8"
+                  className="h-8 w-8"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -174,10 +174,10 @@ const About: NextPage = () => {
                   ></path>
                 </svg>
               </div>
-              <div className="ml-2 sm:py-2 sm:ml-6">
-                <span className="font-bold sm:text-2xl font-heading">+ </span>
+              <div className="ml-2 sm:ml-6 sm:py-2">
+                <span className="font-heading font-bold sm:text-2xl">+ </span>
                 <Counter to={150} />
-                <p className="text-xs sm:text-base text-blueGray-400">
+                <p className="text-xs text-blueGray-400 sm:text-base">
                   Annual Partner
                 </p>
               </div>
@@ -187,11 +187,11 @@ const About: NextPage = () => {
               initial="hidden"
               animate="show"
               custom={0.4}
-              className="flex py-4 w-1/2 lg:w-auto"
+              className="flex w-1/2 py-4 lg:w-auto"
             >
-              <div className="flex justify-center items-center w-12 h-12 text-blue-500 rounded-xl sm:w-20 sm:h-20 bg-blueGray-50">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blueGray-50 text-blue-500 sm:h-20 sm:w-20">
                 <svg
-                  className="w-8 h-8"
+                  className="h-8 w-8"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -205,11 +205,11 @@ const About: NextPage = () => {
                   ></path>
                 </svg>
               </div>
-              <div className="ml-2 sm:py-2 sm:ml-6">
-                <span className="font-bold sm:text-2xl font-heading">+ </span>
+              <div className="ml-2 sm:ml-6 sm:py-2">
+                <span className="font-heading font-bold sm:text-2xl">+ </span>
                 <Counter to={57} />
-                <span className="font-bold sm:text-2xl font-heading"> K</span>
-                <p className="text-xs sm:text-base text-blueGray-400">
+                <span className="font-heading font-bold sm:text-2xl"> K</span>
+                <p className="text-xs text-blueGray-400 sm:text-base">
                   Completed Projects
                 </p>
               </div>
@@ -219,11 +219,11 @@ const About: NextPage = () => {
               initial="hidden"
               animate="show"
               custom={0.6}
-              className="flex py-4 w-1/2 lg:w-auto"
+              className="flex w-1/2 py-4 lg:w-auto"
             >
-              <div className="flex justify-center items-center w-12 h-12 text-blue-500 rounded-xl sm:w-20 sm:h-20 bg-blueGray-50">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blueGray-50 text-blue-500 sm:h-20 sm:w-20">
                 <svg
-                  className="w-8 h-8"
+                  className="h-8 w-8"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -237,10 +237,10 @@ const About: NextPage = () => {
                   ></path>
                 </svg>
               </div>
-              <div className="ml-2 sm:py-2 sm:ml-6">
-                <span className="font-bold sm:text-2xl font-heading">+ </span>
+              <div className="ml-2 sm:ml-6 sm:py-2">
+                <span className="font-heading font-bold sm:text-2xl">+ </span>
                 <Counter to={500} />
-                <p className="text-xs sm:text-base text-blueGray-400">
+                <p className="text-xs text-blueGray-400 sm:text-base">
                   Happy Customers
                 </p>
               </div>
@@ -250,11 +250,11 @@ const About: NextPage = () => {
               initial="hidden"
               animate="show"
               custom={0.8}
-              className="flex py-4 w-1/2 lg:w-auto"
+              className="flex w-1/2 py-4 lg:w-auto"
             >
-              <div className="flex justify-center items-center w-12 h-12 text-blue-500 rounded-xl sm:w-20 sm:h-20 bg-blueGray-50">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blueGray-50 text-blue-500 sm:h-20 sm:w-20">
                 <svg
-                  className="w-8 h-8"
+                  className="h-8 w-8"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -268,10 +268,10 @@ const About: NextPage = () => {
                   ></path>
                 </svg>
               </div>
-              <div className="ml-2 sm:py-2 sm:ml-6">
-                <span className="font-bold sm:text-2xl font-heading">+ </span>
+              <div className="ml-2 sm:ml-6 sm:py-2">
+                <span className="font-heading font-bold sm:text-2xl">+ </span>
                 <Counter to={320} />
-                <p className="text-xs sm:text-base text-blueGray-400">
+                <p className="text-xs text-blueGray-400 sm:text-base">
                   Research Work
                 </p>
               </div>
@@ -282,12 +282,12 @@ const About: NextPage = () => {
       <HowWeWork />
       {/* Experts */}
       <section className="py-20">
-        <div className="container mx-auto text-center">
+        <div className="container text-center">
           <div className="mx-auto mb-16 max-w-lg">
-            <span className="inline-block py-1 px-3 text-xs font-semibold text-blue-600 bg-blue-100 rounded-xl">
+            <span className="inline-block rounded-xl bg-blue-100 px-3 py-1 text-xs font-semibold text-blue-600">
               About Our Expert
             </span>
-            <h2 className="mt-2 mb-4 text-3xl font-bold md:text-4xl font-heading">
+            <h2 className="mb-4 mt-2 font-heading text-3xl font-bold md:text-4xl">
               Entrust Your Project To Our
               <span className="text-blue-500"> Specialists</span>
             </h2>
@@ -296,7 +296,7 @@ const About: NextPage = () => {
               to manage business categories
             </p>
           </div>
-          <div className="flex flex-wrap -mx-5">
+          <div className="-mx-5 flex flex-wrap">
             {experts.map((i, index) => (
               <Expert
                 key={`expert-${i.name}`}
@@ -312,7 +312,7 @@ const About: NextPage = () => {
       </section>
       {/* Contact Us */}
       <section className="pb-20">
-        <div className="container mx-auto">
+        <div className="container">
           <div className="mx-auto max-w-2xl text-center">
             <div className="mx-auto mb-8 max-w-md">
               <motion.span
@@ -321,7 +321,7 @@ const About: NextPage = () => {
                 whileInView="show"
                 custom={0.1}
                 viewport={{ once: true }}
-                className="inline-block py-1 px-3 text-xs font-semibold text-blue-600 bg-blue-100 rounded-xl"
+                className="inline-block rounded-xl bg-blue-100 px-3 py-1 text-xs font-semibold text-blue-600"
               >
                 Contact Us
               </motion.span>
@@ -330,7 +330,7 @@ const About: NextPage = () => {
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true }}
-                className="mt-2 text-4xl font-bold font-heading"
+                className="mt-2 font-heading text-4xl font-bold"
               >
                 We will<span className="text-blue-500"> be glad</span> to hear
                 from you!
@@ -377,7 +377,7 @@ const About: NextPage = () => {
                 >
                   <input
                     type="text"
-                    className="p-4 w-full text-xs font-semibold leading-none rounded outline-none bg-blueGray-50"
+                    className="w-full rounded bg-blueGray-50 p-4 text-xs font-semibold leading-none outline-none"
                     placeholder="Subject"
                   />
                 </motion.div>
@@ -391,7 +391,7 @@ const About: NextPage = () => {
                 >
                   <input
                     type="text"
-                    className="p-4 w-full text-xs font-semibold leading-none rounded outline-none bg-blueGray-50"
+                    className="w-full rounded bg-blueGray-50 p-4 text-xs font-semibold leading-none outline-none"
                     placeholder="Name"
                   />
                 </motion.div>
@@ -405,7 +405,7 @@ const About: NextPage = () => {
                 >
                   <input
                     type="email"
-                    className="p-4 w-full text-xs font-semibold leading-none rounded outline-none bg-blueGray-50"
+                    className="w-full rounded bg-blueGray-50 p-4 text-xs font-semibold leading-none outline-none"
                     placeholder="name@example.com"
                   />
                 </motion.div>
@@ -418,7 +418,7 @@ const About: NextPage = () => {
                   className="mb-4"
                 >
                   <textarea
-                    className="p-4 w-full text-xs font-semibold leading-none rounded outline-none resize-none bg-blueGray-50"
+                    className="w-full resize-none rounded bg-blueGray-50 p-4 text-xs font-semibold leading-none outline-none"
                     placeholder="Message..."
                   />
                 </motion.div>
@@ -428,11 +428,11 @@ const About: NextPage = () => {
                   whileInView="show"
                   custom={0.3}
                   viewport={{ once: true }}
-                  className="flex justify-between items-center mb-4"
+                  className="mb-4 flex items-center justify-between"
                 >
-                  <label className="flex px-2 w-full rounded bg-blueGray-50">
+                  <label className="flex w-full rounded bg-blueGray-50 px-2">
                     <input className="hidden" type="file" name="Choose file" />
-                    <span className="py-3 px-4 my-1 ml-auto text-xs font-semibold leading-none text-white rounded cursor-pointer bg-blueGray-400 hover:bg-blueGray-600">
+                    <span className="my-1 ml-auto cursor-pointer rounded bg-blueGray-400 px-4 py-3 text-xs font-semibold leading-none text-white hover:bg-blueGray-600">
                       Browse
                     </span>
                   </label>
@@ -443,7 +443,7 @@ const About: NextPage = () => {
                   whileInView="show"
                   custom={0.3}
                   viewport={{ once: true }}
-                  className="flex justify-between items-center"
+                  className="flex items-center justify-between"
                 >
                   <label>
                     <input
@@ -457,7 +457,7 @@ const About: NextPage = () => {
                     </span>
                   </label>
                   <button
-                    className="py-4 px-8 text-sm font-semibold leading-none text-white bg-blue-500 rounded hover:bg-blue-700"
+                    className="rounded bg-blue-500 px-8 py-4 text-sm font-semibold leading-none text-white hover:bg-blue-700"
                     type="submit"
                   >
                     Submit
@@ -469,10 +469,10 @@ const About: NextPage = () => {
         </div>
       </section>
       {/* Subscribe */}
-      <section className="py-20 bg-blue-500">
-        <div className="container mx-auto">
+      <section className="bg-blue-500 py-20">
+        <div className="container">
           <div className="mx-auto max-w-xl text-center">
-            <h2 className="mb-4 text-3xl font-bold text-white font-heading">
+            <h2 className="mb-4 font-heading text-3xl font-bold text-white">
               Subscribe now to{" "}
               <span className="text-blue-200">Our Newsletter</span>
               <br />
@@ -481,10 +481,10 @@ const About: NextPage = () => {
             <p className="mb-8 text-blueGray-200">
               All your information is completely confidential
             </p>
-            <div className="flex flex-wrap mx-auto max-w-lg">
-              <div className="flex px-3 mb-3 w-full bg-blue-500 rounded border border-blue-300 md:mr-6 md:mb-0 md:w-2/3">
+            <div className="mx-auto flex max-w-lg flex-wrap">
+              <div className="mb-3 flex w-full rounded border border-blue-300 bg-blue-500 px-3 md:mb-0 md:mr-6 md:w-2/3">
                 <svg
-                  className="my-auto w-6 h-6 text-blue-300"
+                  className="my-auto h-6 w-6 text-blue-300"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                   fill="currentColor"
@@ -494,12 +494,12 @@ const About: NextPage = () => {
                 </svg>
                 <input
                   type="text"
-                  className="py-4 pl-3 w-full text-xs font-semibold leading-none placeholder-white text-white bg-blue-500 outline-none"
+                  className="w-full bg-blue-500 py-4 pl-3 text-xs font-semibold leading-none text-white placeholder-white outline-none"
                   placeholder="Type your e-mail"
                 />
               </div>
               <button
-                className="py-4 px-8 w-full text-xs font-semibold leading-none text-blue-800 bg-white rounded border border-blue-300 transition duration-300 ease-in-out md:w-auto hover:text-white hover:bg-blue-500 hover:border-white"
+                className="w-full rounded border border-blue-300 bg-white px-8 py-4 text-xs font-semibold leading-none text-blue-800 transition duration-300 ease-in-out hover:border-white hover:bg-blue-500 hover:text-white md:w-auto"
                 type="submit"
               >
                 Sign Up
@@ -510,13 +510,13 @@ const About: NextPage = () => {
       </section>
       {/* Footer */}
       <section className="relative">
-        <div className="hidden absolute inset-0 ml-auto w-1/2 lg:block bg-blueGray-50"></div>
-        <div className="container mx-auto">
-          <div className="flex relative flex-wrap -mx-4">
-            <div className="px-4 pt-20 mx-auto w-full max-w-lg text-center lg:mx-0 lg:w-1/2 lg:max-w-full lg:text-left">
+        <div className="absolute inset-0 ml-auto hidden w-1/2 bg-blueGray-50 lg:block"></div>
+        <div className="">
+          <div className="relative -mx-4 flex flex-wrap">
+            <div className="mx-auto w-full max-w-lg px-4 pt-20 text-center lg:mx-0 lg:w-1/2 lg:max-w-full lg:text-left">
               <Link
                 href="/"
-                className="inline-block mx-auto text-3xl font-semibold leading-none lg:ml-0"
+                className="mx-auto inline-block text-3xl font-semibold leading-none lg:ml-0"
               >
                 <Image
                   className="h-10"
@@ -526,14 +526,14 @@ const About: NextPage = () => {
                   alt="logo"
                 />
               </Link>
-              <div className="mt-12 mb-16">
-                <p className="mb-4 text-xs text-center lg:text-left text-blueGray-400">
+              <div className="mb-16 mt-12">
+                <p className="mb-4 text-center text-xs text-blueGray-400 lg:text-left">
                   Subscribe and stay fully connected with product.
                 </p>
                 <div className="flex flex-wrap items-center lg:flex-nowrap">
-                  <div className="flex px-4 mb-3 w-full rounded lg:mb-0 lg:w-2/3 bg-blueGray-50">
+                  <div className="mb-3 flex w-full rounded bg-blueGray-50 px-4 lg:mb-0 lg:w-2/3">
                     <svg
-                      className="my-auto w-6 h-6"
+                      className="my-auto h-6 w-6"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 20 20"
                       fill="currentColor"
@@ -542,13 +542,13 @@ const About: NextPage = () => {
                       <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
                     </svg>
                     <input
-                      className="py-4 pl-3 w-full text-xs outline-none bg-blueGray-50 text-blueGray-400"
+                      className="w-full bg-blueGray-50 py-4 pl-3 text-xs text-blueGray-400 outline-none"
                       type="text"
                       placeholder="Type your e-mail"
                     />
                   </div>
                   <button
-                    className="py-4 px-8 w-full text-xs font-semibold leading-none text-white bg-blue-400 rounded lg:ml-6 lg:w-auto hover:bg-blue-500 hover-up-2"
+                    className="hover-up-2 w-full rounded bg-blue-400 px-8 py-4 text-xs font-semibold leading-none text-white hover:bg-blue-500 lg:ml-6 lg:w-auto"
                     type="submit"
                   >
                     Sign Up
@@ -572,10 +572,10 @@ const About: NextPage = () => {
                 </div>
               </div>
             </div>
-            <div className="relative px-4 pt-40 w-full lg:pl-12 lg:w-1/2">
-              <div className="flex flex-row flex-wrap justify-around mb-12">
+            <div className="relative w-full px-4 pt-40 lg:w-1/2 lg:pl-12">
+              <div className="mb-12 flex flex-row flex-wrap justify-around">
                 <div className="mb-12 w-1/2 lg:w-auto">
-                  <h5 className="mb-6 text-lg font-bold font-heading">About</h5>
+                  <h5 className="mb-6 font-heading text-lg font-bold">About</h5>
                   <ul className="space-y-3">
                     <li>
                       <Link
@@ -612,7 +612,7 @@ const About: NextPage = () => {
                   </ul>
                 </div>
                 <div className="mb-12 w-1/2 lg:w-auto">
-                  <h5 className="mb-6 text-lg font-bold font-heading">
+                  <h5 className="mb-6 font-heading text-lg font-bold">
                     Quick Links
                   </h5>
                   <ul className="space-y-3">
@@ -651,7 +651,7 @@ const About: NextPage = () => {
                   </ul>
                 </div>
                 <div className="mb-12 w-1/2 lg:w-auto">
-                  <h5 className="mb-6 text-lg font-bold font-heading">Blog</h5>
+                  <h5 className="mb-6 font-heading text-lg font-bold">Blog</h5>
                   <ul className="space-y-3">
                     <li>
                       <Link
