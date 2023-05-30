@@ -5,6 +5,7 @@ import Image from "next/image";
 import intersectSvg from "~/assets/intersect.svg";
 import Footer from "~/components/footer";
 import BreadCumb from "~/components/bread-cumb";
+import Title from "~/components/title";
 
 const Portfolio: NextPage = () => {
   return (
@@ -13,40 +14,14 @@ const Portfolio: NextPage = () => {
       {/* Project */}
       <section className="py-12 md:py-20">
         <div className="container">
-          <div className="mx-auto mb-12 max-w-lg text-center">
-            <motion.span
-              variants={fadeInUpMotion}
-              custom={0.1}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              className="inline-block rounded-xl bg-blue-100 px-3 py-1 text-xs font-semibold text-blue-600"
-            >
-              Out Projects
-            </motion.span>
-            <motion.h2
-              variants={fadeInUpMotion}
-              custom={0.3}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              className="mb-4 mt-2 font-heading text-3xl font-bold md:text-4xl"
-            >
-              Check Out
-              <br /> Our <span className="text-blue-500">Latest</span> Project
-            </motion.h2>
-            <motion.p
-              variants={fadeInUpMotion}
-              custom={0.5}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              className="leading-loose text-blueGray-400"
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-              luctus eget justo et iaculis.
-            </motion.p>
-          </div>
+          <Title
+            label="Out Projects"
+            desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+              luctus eget justo et iaculis."
+          >
+            Check Out
+            <br /> Our <span className="text-blue-500">Latest</span> Project
+          </Title>
           <div className="-mx-3 mb-6 flex flex-wrap lg:mb-0">
             <div className="lg:md-0 mb-6 flex w-full flex-wrap px-3 lg:w-1/2">
               <motion.div
@@ -281,30 +256,15 @@ const Portfolio: NextPage = () => {
         }}
       >
         <div className="container">
-          <div className="mb-8 text-center">
-            <motion.h2
-              variants={fadeInUpMotion}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              className="mx-auto mb-4 max-w-lg font-heading text-4xl font-bold"
-            >
-              <span>Choose Your </span>
-              <br />
-              <span className="text-blue-600">Best</span>
-              <span>Pricing Plan</span>
-            </motion.h2>
-            <motion.p
-              variants={fadeInUpMotion}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              custom={0.3}
-              className="mx-auto max-w-sm text-lg text-blueGray-400"
-            >
-              Great Things In Business Are Never Done By One Person
-            </motion.p>
-          </div>
+          <Title
+            label="Out Projects"
+            desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed luctus eget justo et iaculis."
+          >
+            <span>Choose Your </span>
+            <br />
+            <span className="text-blue-600">Best</span>
+            <span>Pricing Plan</span>
+          </Title>
           <div className="mb-10 flex flex-wrap sm:justify-center">
             <motion.label
               variants={fadeInUpMotion}
