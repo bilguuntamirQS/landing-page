@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { MotionLink, fadeInMotion, fadeInUpMotion } from "~/utils/animation";
 import Link from "next/link";
 import Image from "next/image";
+import intersectSvg from "~/assets/intersect.svg";
 
 const Portfolio: NextPage = () => {
   return (
@@ -307,6 +308,164 @@ const Portfolio: NextPage = () => {
               </motion.div>
             </div>
           </div>
+        </div>
+      </section>
+      {/* Pricing Plan */}
+      <section
+        className="bg-top bg-no-repeat py-20 xl:bg-contain"
+        style={{ backgroundImage: intersectSvg }}
+      >
+        <div className="container">
+          <div className="mb-8 text-center">
+            <motion.h2
+              variants={fadeInUpMotion}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              className="mx-auto mb-4 max-w-lg font-heading text-4xl font-bold"
+            >
+              <span>Choose Your </span>
+              <br />
+              <span className="text-blue-600">Best</span>
+              <span>Pricing Plan</span>
+            </motion.h2>
+            <motion.p
+              variants={fadeInUpMotion}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              custom={0.3}
+              className="mx-auto max-w-sm text-lg text-blueGray-400"
+            >
+              Great Things In Business Are Never Done By One Person
+            </motion.p>
+          </div>
+          <div className="mb-10 flex flex-wrap sm:justify-center">
+            <motion.label
+              variants={fadeInUpMotion}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              custom={0.3}
+              className="mb-2 mr-8 flex items-center"
+            >
+              <input type="radio" name="billing" value="1" />
+              <span className="mx-2 font-semibold">Monthly Billing</span>
+              <span className="inline-flex h-10 w-12 items-center justify-center rounded bg-blue-500 font-semibold text-white">
+                $59
+              </span>
+            </motion.label>
+            <motion.label
+              variants={fadeInUpMotion}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              custom={0.5}
+              className="mb-2 flex items-center"
+            >
+              <input type="radio" name="billing" value="2" />
+              <span className="mx-2 font-semibold">Annual Billing</span>
+              <span className="inline-flex h-10 w-12 items-center justify-center rounded bg-blue-500 font-semibold text-white">
+                $99
+              </span>
+            </motion.label>
+          </div>
+          <motion.div
+            variants={fadeInUpMotion}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="flex flex-wrap rounded bg-white shadow"
+          >
+            <div className="w-full px-3 md:w-1/2 lg:w-2/5">
+              <div className="p-8 text-center">
+                <span className="text-blueGray-400">Sign In</span>
+                <h4 className="mb-6 text-2xl">Setup your payment</h4>
+                <div className="mb-4 flex rounded bg-blueGray-100 px-4">
+                  <input
+                    className="w-full bg-blueGray-100 py-4 text-xs font-semibold leading-none placeholder-blueGray-400 outline-none"
+                    type="email"
+                    placeholder="name@email.com"
+                  />
+                  <svg
+                    className="my-auto ml-4 h-6 w-6 text-blueGray-300"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
+                    ></path>
+                  </svg>
+                </div>
+                <div className="mb-6 flex rounded bg-blueGray-100 px-4">
+                  <input
+                    className="w-full bg-blueGray-100 py-4 text-xs font-semibold leading-none placeholder-blueGray-400 outline-none"
+                    type="password"
+                    placeholder="Enter your password"
+                  />
+                  <button className="ml-4">
+                    <svg
+                      className="my-auto h-6 w-6 text-blueGray-300"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                      ></path>
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+                <div className="mb-5 text-left text-sm text-blueGray-400">
+                  <label>
+                    <input type="checkbox" name="terms" value="1" />
+                    <span className="ml-1">
+                      I agree to terms and conditions.
+                    </span>
+                  </label>
+                </div>
+                <button className="block w-full rounded bg-blue-400 p-4 text-center text-xs font-semibold leading-none text-white hover:bg-blue-500">
+                  Purchase now
+                </button>
+              </div>
+            </div>
+            <div className="relative w-full overflow-hidden rounded-r bg-blue-500 px-3 md:w-1/2 lg:w-3/5">
+              <div className="max-w-sm px-12 pt-12">
+                <span className="text-xs text-blue-200">
+                  Various Analysis Options
+                </span>
+                <h3 className="mb-4 font-heading text-4xl font-bold text-white">
+                  Techno Provides Realtime Best Data Solutions.
+                </h3>
+              </div>
+              <div className="absolute bottom-0 right-0">
+                <div className="flex h-full items-center">
+                  <Image
+                    src="https://wp.alithemes.com/html/monst/assets/imgs/illustrations/online-shopping.png"
+                    alt=""
+                    className="h-80"
+                    width={158.16}
+                    height={320}
+                  />
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
     </>
