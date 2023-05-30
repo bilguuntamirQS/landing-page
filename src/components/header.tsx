@@ -64,20 +64,22 @@ const Header: FC = () => {
     },
     {
       label: "About Us",
-      href: "about",
+      href: "/about",
     },
     {
       label: "Services",
     },
     {
       label: "Company",
+      href: "/portfolio",
       sub: [
         {
           label: "Portfolio",
-          href: "portfolio",
+          href: "/portfolio",
         },
         {
           label: "Team",
+          href: "/team",
         },
         {
           label: "Testamonials",
@@ -187,9 +189,8 @@ const Header: FC = () => {
       </header>
       {/* Mobile Menu */}
       <div
-        className={`navbar-menu relative z-50 transition duration-300 ${
-          isMobileOpen ? "" : "hidden"
-        }`}
+        className={`navbar-menu relative z-50 transition duration-300 ${isMobileOpen ? "" : "hidden"
+          }`}
       >
         <div className="navbar-backdrop bg-blueGray-800 fixed inset-0 opacity-25"></div>
         <nav className="fixed bottom-0 left-0 top-0 flex w-5/6 max-w-sm flex-col overflow-y-auto border-r bg-white p-6 transition duration-300">
@@ -218,9 +219,8 @@ const Header: FC = () => {
               {links.map((i, index) => (
                 <li
                   key={`mobile-parent-${index}`}
-                  className={`mb-1 rounded-xl ${
-                    i.sub ? "menu-item-has-children" : ""
-                  }`}
+                  className={`mb-1 rounded-xl ${i.sub ? "menu-item-has-children" : ""
+                    }`}
                 >
                   {i.sub && (
                     <button
