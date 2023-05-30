@@ -92,6 +92,7 @@ const Header: FC = () => {
         },
         {
           label: "404",
+          href: "/404",
         },
       ],
     },
