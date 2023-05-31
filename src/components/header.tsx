@@ -108,6 +108,7 @@ const Header: FC = () => {
         },
         {
           label: "Category 2",
+          href: "/blog-2"
         },
         {
           label: "Single 1",
@@ -128,7 +129,7 @@ const Header: FC = () => {
       {/* Header */}
       <header className="sticky top-0 z-30 mt-4 bg-transparent">
         <div className="container bg-transparent">
-          <nav className="flex items-center justify-between bg-transparent py-3">
+          <nav className="flex justify-between items-center py-3 bg-transparent">
             <Link className="text-3xl font-semibold leading-none" href="/">
               <Image
                 className="h-10"
@@ -138,7 +139,7 @@ const Header: FC = () => {
                 src="https://wp.alithemes.com/html/monst/assets/imgs/logos/monst-logo.svg"
               />
             </Link>
-            <ul className="hidden lg:flex lg:w-auto lg:items-center lg:space-x-12">
+            <ul className="hidden lg:flex lg:items-center lg:space-x-12 lg:w-auto">
               {links.map((i, index) => (
                 <li
                   key={`parent-${index}`}
@@ -156,7 +157,7 @@ const Header: FC = () => {
                         <li key={`child-${index2}`}>
                           <Link
                             href={j?.href || "#"}
-                            className="menu-sub-item text-sm text-blueGray-600 hover:text-blueGray-400"
+                            className="text-sm menu-sub-item text-blueGray-600 hover:text-blueGray-400"
                           >
                             {j?.label}
                           </Link>
@@ -178,10 +179,10 @@ const Header: FC = () => {
             <div className="lg:hidden">
               <button
                 onClick={() => setIsMobileOpen(true)}
-                className="navbar-burger flex items-center rounded border border-blue-200 px-3 py-2 text-blue-500 hover:border-blue-300 hover:text-blue-700"
+                className="flex items-center py-2 px-3 text-blue-500 rounded border border-blue-200 hover:text-blue-700 hover:border-blue-300 navbar-burger"
               >
                 <svg
-                  className="h-4 w-4 fill-current"
+                  className="w-4 h-4 fill-current"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -198,9 +199,9 @@ const Header: FC = () => {
         className={`navbar-menu relative z-50 transition duration-300 ${isMobileOpen ? "" : "hidden"
           }`}
       >
-        <div className="navbar-backdrop bg-blueGray-800 fixed inset-0 opacity-25"></div>
-        <nav className="fixed bottom-0 left-0 top-0 flex w-5/6 max-w-sm flex-col overflow-y-auto border-r bg-white p-6 transition duration-300">
-          <div className="mb-8 flex items-center">
+        <div className="fixed inset-0 opacity-25 navbar-backdrop bg-blueGray-800"></div>
+        <nav className="flex overflow-y-auto fixed top-0 bottom-0 left-0 flex-col p-6 w-5/6 max-w-sm bg-white border-r transition duration-300">
+          <div className="flex items-center mb-8">
             <Link
               href="/"
               className="mr-auto text-3xl font-semibold leading-none"
@@ -214,7 +215,7 @@ const Header: FC = () => {
               />
             </Link>
             <button
-              className="navbar-close h-6 w-6 cursor-pointer text-blueGray-600 hover:text-blue-500"
+              className="w-6 h-6 cursor-pointer hover:text-blue-500 navbar-close text-blueGray-600"
               onClick={() => setIsMobileOpen(false)}
             >
               &#10005;
@@ -233,7 +234,7 @@ const Header: FC = () => {
                       onClick={() => {
                         toggleExpand(i.label);
                       }}
-                      className="menu-expand text-center"
+                      className="text-center menu-expand"
                       style={{
                         transform: checkIsExpand(i.label)
                           ? "rotate(45deg)"
@@ -245,7 +246,7 @@ const Header: FC = () => {
                   )}
                   <Link
                     href={i.href || "#"}
-                    className="block rounded-xl p-4 text-sm text-blueGray-400 hover:bg-blue-50 hover:text-blue-500"
+                    className="block p-4 text-sm rounded-xl hover:text-blue-500 hover:bg-blue-50 text-blueGray-400"
                   >
                     {i.label}
                   </Link>
@@ -261,7 +262,7 @@ const Header: FC = () => {
                         <li key={`mobile-child-${index2}`}>
                           <Link
                             href={j.href || "#"}
-                            className="block rounded-xl p-3 text-sm text-blueGray-400 hover:bg-blue-50 hover:text-blue-500"
+                            className="block p-3 text-sm rounded-xl hover:text-blue-500 hover:bg-blue-50 text-blueGray-400"
                           >
                             {j.label}
                           </Link>
@@ -273,16 +274,16 @@ const Header: FC = () => {
               ))}
             </ul>
           </div>
-          <div className="mt-4 border-t border-blueGray-100 pt-6">
+          <div className="pt-6 mt-4 border-t border-blueGray-100">
             <Link
               href="#"
-              className="mb-3 block rounded bg-blue-400 px-4 py-3 text-center text-xs font-semibold leading-none text-white hover:bg-blue-500"
+              className="block py-3 px-4 mb-3 text-xs font-semibold leading-none text-center text-white bg-blue-400 rounded hover:bg-blue-500"
             >
               Sign Up
             </Link>
             <Link
               href="#"
-              className="mb-2 block rounded border border-blue-200 px-4 py-3 text-center text-xs font-semibold leading-none text-blue-500 hover:border-blue-300 hover:text-blue-700"
+              className="block py-3 px-4 mb-2 text-xs font-semibold leading-none text-center text-blue-500 rounded border border-blue-200 hover:text-blue-700 hover:border-blue-300"
             >
               Log In
             </Link>
