@@ -116,6 +116,7 @@ const Header: FC = () => {
         },
         {
           label: "Single 2",
+          href: "/blog-single-2",
         },
       ],
     },
