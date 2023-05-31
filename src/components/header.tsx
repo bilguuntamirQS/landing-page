@@ -90,6 +90,7 @@ const Header: FC = () => {
         },
         {
           label: "Faqs",
+          href: "/faqs",
         },
         {
           label: "404",
@@ -164,7 +165,7 @@ const Header: FC = () => {
               ))}
             </ul>
             <div className="hidden lg:block">
-              <Link href="#" className="btn-accent hover-up-2">
+              <Link href="/login" className="btn-accent hover-up-2">
                 Login In
               </Link>
               <Link href="#" className="btn-primary hover-up-2">

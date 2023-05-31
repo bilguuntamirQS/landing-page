@@ -1,6 +1,6 @@
 import type { CommentProps } from "~/components/comment";
 
-export const comments: CommentProps[] = [
+export const comments: Omit<CommentProps, "delay">[] = [
   {
     name: "Geraldine Tusoy",
     role: "CEO, Co Founders",
