@@ -83,6 +83,7 @@ const Header: FC = () => {
         },
         {
           label: "Testamonials",
+          href: "/testimonials",
         },
         {
           label: "Pricing",
