@@ -168,7 +168,7 @@ const Header: FC = () => {
               <Link href="/login" className="btn-accent hover-up-2">
                 Login In
               </Link>
-              <Link href="#" className="btn-primary hover-up-2">
+              <Link href="/signup" className="btn-primary hover-up-2">
                 Sing Up
               </Link>
             </div>
