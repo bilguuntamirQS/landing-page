@@ -100,9 +100,11 @@ const Header: FC = () => {
     },
     {
       label: "Blog",
+      href: "/blog",
       sub: [
         {
           label: "Category 1",
+          href: "/blog",
         },
         {
           label: "Category 2",
@@ -117,6 +119,7 @@ const Header: FC = () => {
     },
     {
       label: "Contact",
+      href: "/contact",
     },
   ];
 
