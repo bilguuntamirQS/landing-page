@@ -3,7 +3,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { fadeInDown, fadeInMotion, fadeInUpMotion } from "~/utils/animation";
 import Image from "next/image";
-import { FC } from "react";
+import type { FC } from "react";
 import Counter from "~/components/counter";
 import HowWeWork from "~/components/howWeWork";
 import ContactUs from "~/components/contact-us";

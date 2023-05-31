@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { fadeInMotion, fadeInUpMotion } from "~/utils/animation";
 import Link from "next/link";
 import type { FC } from "react";
+import Counter from "~/components/counter";
 
 interface Props {
   title: string;
@@ -137,7 +138,8 @@ const Pricing: NextPage = () => {
 
   return (
     <>
-      <Hero counter />
+      <Hero />
+      <Counter />
       <section className="py-20">
         <div className="container">
           <div className="mb-16 max-w-lg">

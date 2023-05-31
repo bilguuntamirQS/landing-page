@@ -4,6 +4,8 @@ import { type FC } from "react";
 import facebookSvg from "~/assets/facebook-blue.svg";
 import twitterSvg from "~/assets/twitter-blue.svg";
 import instagramSvg from "~/assets/instagram-blue.svg";
+import { MotionLink, fadeInMotion, fadeInUpMotion } from "~/utils/animation";
+import { motion } from "framer-motion";
 
 const Footer: FC = () => {
   return (
@@ -12,7 +14,12 @@ const Footer: FC = () => {
       <div className="container">
         <div className="relative -mx-4 flex flex-wrap">
           <div className="mx-auto w-full max-w-lg px-4 pt-20 text-center lg:mx-0 lg:w-1/2 lg:max-w-full lg:text-left">
-            <Link
+            <MotionLink
+              variants={fadeInUpMotion}
+              custom={0.1}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
               href="/"
               className="mx-auto inline-block text-3xl font-semibold leading-none lg:ml-0"
             >
@@ -23,12 +30,26 @@ const Footer: FC = () => {
                 width={125.8}
                 alt="logo"
               />
-            </Link>
+            </MotionLink>
             <div className="mb-16 mt-12">
-              <p className="mb-4 text-center text-xs text-blueGray-400 lg:text-left">
+              <motion.p
+                variants={fadeInUpMotion}
+                custom={0.1}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+                className="mb-4 text-center text-xs text-blueGray-400 lg:text-left"
+              >
                 Subscribe and stay fully connected with product.
-              </p>
-              <div className="flex flex-wrap items-center lg:flex-nowrap">
+              </motion.p>
+              <motion.div
+                variants={fadeInUpMotion}
+                custom={0.3}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+                className="flex flex-wrap items-center lg:flex-nowrap"
+              >
                 <div className="mb-3 flex w-full rounded bg-blueGray-50 px-4 lg:mb-0 lg:w-2/3">
                   <svg
                     className="my-auto h-6 w-6"
@@ -45,15 +66,24 @@ const Footer: FC = () => {
                     placeholder="Type your e-mail"
                   />
                 </div>
-                <button
+                <motion.button
+                  variants={fadeInMotion}
+                  whileHover="hover"
                   className="hover-up-2 w-full rounded bg-blue-400 px-8 py-4 text-xs font-semibold leading-none text-white hover:bg-blue-500 lg:ml-6 lg:w-auto"
                   type="submit"
                 >
                   Sign Up
-                </button>
-              </div>
+                </motion.button>
+              </motion.div>
             </div>
-            <div className="hidden lg:block">
+            <motion.div
+              variants={fadeInUpMotion}
+              custom={0.5}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              className="hidden lg:block"
+            >
               <p className="text-xs text-blueGray-400">
                 © 2021. All rights reserved.
               </p>
@@ -68,11 +98,18 @@ const Footer: FC = () => {
                   <Image src={instagramSvg as string} alt="instagram-logo" />
                 </Link>
               </div>
-            </div>
+            </motion.div>
           </div>
           <div className="relative w-full px-4 pt-40 lg:w-1/2 lg:pl-12">
             <div className="mb-12 flex flex-row flex-wrap justify-around">
-              <div className="mb-12 w-1/2 lg:w-auto">
+              <motion.div
+                variants={fadeInUpMotion}
+                custom={0.1}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+                className="mb-12 w-1/2 lg:w-auto"
+              >
                 <h5 className="mb-6 font-heading text-lg font-bold">About</h5>
                 <ul className="space-y-3">
                   <li>
@@ -108,8 +145,15 @@ const Footer: FC = () => {
                     </Link>
                   </li>
                 </ul>
-              </div>
-              <div className="mb-12 w-1/2 lg:w-auto">
+              </motion.div>
+              <motion.div
+                variants={fadeInUpMotion}
+                custom={0.3}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+                className="mb-12 w-1/2 lg:w-auto"
+              >
                 <h5 className="mb-6 font-heading text-lg font-bold">
                   Quick Links
                 </h5>
@@ -147,8 +191,15 @@ const Footer: FC = () => {
                     </Link>
                   </li>
                 </ul>
-              </div>
-              <div className="mb-12 w-1/2 lg:w-auto">
+              </motion.div>
+              <motion.div
+                variants={fadeInUpMotion}
+                custom={0.5}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+                className="mb-12 w-1/2 lg:w-auto"
+              >
                 <h5 className="mb-6 font-heading text-lg font-bold">Blog</h5>
                 <ul className="space-y-3">
                   <li>
@@ -176,7 +227,7 @@ const Footer: FC = () => {
                     </Link>
                   </li>
                 </ul>
-              </div>
+              </motion.div>
             </div>
             <div className="text-center lg:hidden">
               <p className="text-xs text-blueGray-400">
