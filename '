@@ -6,7 +6,7 @@ import {
 } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useState, type FC } from "react";
+import { useState, type FC, useRef } from "react";
 import facebookSvg from "~/assets/facebook-blue.svg";
 import twitterSvg from "~/assets/twitter-blue.svg";
 import instagramSvg from "~/assets/instagram-blue.svg";
@@ -22,11 +22,10 @@ const Header: FC = () => {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [selected, setSelected] = useState<string | undefined>(undefined);
   const [isExpand, setIsExpand] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
-    setScrolled(latest > 100);
+    console.log(latest);
   });
 
   function toggleExpand(select: string) {
@@ -141,9 +140,7 @@ const Header: FC = () => {
   return (
     <>
       {/* Header */}
-      <header
-        className={`sticky-bar mt-4 bg-transparent ${scrolled ? "sticky" : ""}`}
-      >
+      <header className="relative z-[3] mt-4 bg-transparent">
         <div className="container bg-transparent">
           <nav className="flex items-center justify-between bg-transparent py-3">
             <Link className="text-3xl font-semibold leading-none" href="/">

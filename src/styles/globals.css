@@ -5,6 +5,35 @@
 @tailwind components;
 @tailwind utilities;
 
+.sticky-bar {
+  position: relative;
+  z-index: 3;
+}
+
+.sticky-bar.sticky {
+  animation: 700ms ease-in-out 0s normal none 1 running fadeInDown;
+  box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.05);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  left: 0;
+  transition: all 0.3s ease 0s;
+  background: #fff;
+  margin-top: 0 !important;
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+}
+
 .drop-down-menu {
   visibility: hidden;
   position: absolute;
