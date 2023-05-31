@@ -5,6 +5,7 @@ import Footer from "~/components/footer";
 import Hero from "~/components/hero";
 import ContactUs from "~/components/contact-us";
 import Subscribe from "~/components/subscribe";
+import Counter from "~/components/counter";
 
 const About: NextPage = () => {
   const experts: IExpert[] = [
@@ -64,7 +65,8 @@ const About: NextPage = () => {
 
   return (
     <>
-      <Hero counter />
+      <Hero />
+      <Counter />
       <HowWeWork />
       {/* Experts */}
       <section className="py-20">
