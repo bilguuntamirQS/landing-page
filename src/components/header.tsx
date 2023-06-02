@@ -6,10 +6,11 @@ import {
 } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useState, type FC } from "react";
+import { useState, type FC, useEffect } from "react";
 import facebookSvg from "~/assets/facebook-blue.svg";
 import twitterSvg from "~/assets/twitter-blue.svg";
 import instagramSvg from "~/assets/instagram-blue.svg";
+import { useRouter } from "next/router";
 
 type LinkType = {
   label: string;
@@ -19,14 +20,29 @@ type LinkType = {
 type LinkTypeWithSub = LinkType & { sub?: LinkType[] };
 
 const Header: FC = () => {
+  const router = useRouter();
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [selected, setSelected] = useState<string | undefined>(undefined);
   const [isExpand, setIsExpand] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { scrollY } = useScroll();
 
+  useEffect(() => {
+    const handleRouteChange = () => {
+      setSelected(undefined);
+      setIsExpand(false);
+      setIsMobileOpen(false);
+    };
+
+    router.events.on("routeChangeComplete", handleRouteChange);
+
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
+
   useMotionValueEvent(scrollY, "change", (latest) => {
-    setScrolled(latest > 100);
+    setScrolled(latest > 100 && isMobileOpen === false);
   });
 
   function toggleExpand(select: string) {
@@ -50,8 +66,12 @@ const Header: FC = () => {
       transition: {
         delay: 0.15,
       },
+      transitionEnd: {
+        display: "none",
+      },
     },
     open: {
+      display: "block",
       height: "auto",
       opacity: 1,
       transition: {
@@ -213,11 +233,12 @@ const Header: FC = () => {
       </header>
       {/* Mobile Menu */}
       <div
-        className={`navbar-menu relative z-50 transition duration-300 ${isMobileOpen ? "" : "hidden"
-          }`}
+        className={`navbar-menu relative z-50 transition duration-300 ${
+          isMobileOpen ? "" : "hidden"
+        }`}
       >
         <div className="navbar-backdrop bg-blueGray-800 fixed inset-0 opacity-25"></div>
-        <nav className="fixed bottom-0 left-0 top-0 flex w-5/6 max-w-sm flex-col overflow-y-auto border-r bg-white p-6 transition duration-300">
+        <nav className="fixed bottom-0 left-0 top-0 flex w-full max-w-sm flex-col overflow-y-auto border-r bg-white p-6 transition duration-300">
           <div className="mb-8 flex items-center">
             <Link
               href="/"
@@ -243,30 +264,41 @@ const Header: FC = () => {
               {links.map((i, index) => (
                 <li
                   key={`mobile-parent-${index}`}
-                  className={`mb-1 rounded-xl ${i.sub ? "menu-item-has-children" : ""
-                    }`}
+                  className={`mb-1 rounded-xl ${
+                    i.sub ? "menu-item-has-children" : ""
+                  }`}
                 >
-                  {i.sub && (
+                  {i.sub ? (
                     <button
                       onClick={() => {
                         toggleExpand(i.label);
                       }}
-                      className="menu-expand text-center"
-                      style={{
-                        transform: checkIsExpand(i.label)
-                          ? "rotate(45deg)"
-                          : "rotate(0deg)",
-                      }}
+                      className="flex w-full items-center justify-between text-center"
                     >
-                      +
+                      <Link
+                        href={i.href || "#"}
+                        className="rounded-xl p-4 text-sm text-blueGray-400 hover:bg-blue-50 hover:text-blue-500"
+                      >
+                        {i.label}
+                      </Link>
+                      <span
+                        style={{
+                          transform: checkIsExpand(i.label)
+                            ? "rotate(45deg)"
+                            : "rotate(0deg)",
+                        }}
+                      >
+                        +
+                      </span>
                     </button>
+                  ) : (
+                    <Link
+                      href={i.href || "#"}
+                      className="block rounded-xl p-4 text-sm text-blueGray-400 hover:bg-blue-50 hover:text-blue-500"
+                    >
+                      {i.label}
+                    </Link>
                   )}
-                  <Link
-                    href={i.href || "#"}
-                    className="block rounded-xl p-4 text-sm text-blueGray-400 hover:bg-blue-50 hover:text-blue-500"
-                  >
-                    {i.label}
-                  </Link>
                   {i.sub && (
                     <motion.ul
                       className="pl-5"
@@ -293,13 +325,13 @@ const Header: FC = () => {
           </div>
           <div className="mt-4 border-t border-blueGray-100 pt-6">
             <Link
-              href="#"
+              href="/signup"
               className="mb-3 block rounded bg-blue-400 px-4 py-3 text-center text-xs font-semibold leading-none text-white hover:bg-blue-500"
             >
               Sign Up
             </Link>
             <Link
-              href="#"
+              href="/login"
               className="mb-2 block rounded border border-blue-200 px-4 py-3 text-center text-xs font-semibold leading-none text-blue-500 hover:border-blue-300 hover:text-blue-700"
             >
               Log In
