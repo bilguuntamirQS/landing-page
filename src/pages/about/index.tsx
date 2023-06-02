@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Expert, { type IExpert } from "~/components/expert";
-import HowWeWork from "~/components/howWeWork";
+import HowWeWork from "~/components/how-we-work";
 import Footer from "~/components/footer";
 import Hero from "~/components/hero";
 import ContactUs from "~/components/contact-us";

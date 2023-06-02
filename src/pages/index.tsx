@@ -20,7 +20,7 @@ import {
   fadeInUpMotion,
   jumpMotion,
 } from "~/utils/animation";
-import HowWeWork from "~/components/howWeWork";
+import HowWeWork from "~/components/how-we-work";
 
 interface Product {
   title: string;

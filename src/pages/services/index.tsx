@@ -5,7 +5,7 @@ import { fadeInDown, fadeInMotion, fadeInUpMotion } from "~/utils/animation";
 import Image from "next/image";
 import type { FC } from "react";
 import Counter from "~/components/counter";
-import HowWeWork from "~/components/howWeWork";
+import HowWeWork from "~/components/how-we-work";
 import ContactUs from "~/components/contact-us";
 import Subscribe from "~/components/subscribe";
 import Footer from "~/components/footer";
