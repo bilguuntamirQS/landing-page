@@ -1,4 +1,4 @@
-import { type NextPage } from "next";
+import { GetStaticProps, type NextPage } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -9,9 +9,6 @@ import intersectSvg from "~/assets/intersect.svg";
 import featureImage from "~/assets/img-1.png";
 import blobTearSvg from "~/assets/blob-tear.svg";
 import { useEffect, useRef, useState } from "react";
-import facebookSvg from "~/assets/facebook-blue.svg";
-import twitterSvg from "~/assets/twitter-blue.svg";
-import instagramSvg from "~/assets/instagram-blue.svg";
 import {
   MotionLink,
   fadeInDown,
@@ -22,6 +19,8 @@ import {
 } from "~/utils/animation";
 import HowWeWork from "~/components/how-we-work";
 import Footer from "~/components/footer";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 interface Product {
   title: string;
@@ -30,6 +29,7 @@ interface Product {
 }
 
 const Home: NextPage = () => {
+  const { t } = useTranslation("home");
   const products: Product[] = [
     {
       title: "New Event",
@@ -85,9 +85,10 @@ const Home: NextPage = () => {
                 animate="show"
                 className="mb-4 font-heading text-3xl font-bold lg:text-5xl lg:leading-normal"
               >
-                Committed to People
+                {t("hero.title")}
                 <br />
-                Commited <span className="text-blue-500">to the Future</span>
+                {t("hero.title-br")}{" "}
+                <span className="text-blue-500">{t("hero.title-blue")}</span>
               </motion.h2>
               <motion.p
                 variants={fadeInMotion}
@@ -522,6 +523,14 @@ const Home: NextPage = () => {
       <Footer />
     </>
   );
+};
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale || "en", ["home"])),
+    },
+  };
 };
 
 export default Home;
