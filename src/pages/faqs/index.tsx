@@ -4,14 +4,13 @@ import { MotionImage, fadeInMotion, fadeInUpMotion } from "~/utils/animation";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import GetInTouch from "~/components/get-in-touch";
-import Footer from "~/components/footer";
 
 const Faqs: NextPage = () => {
   const cards = [
     {
       icon: (
         <svg
-          className="h-8 w-8"
+          className="w-8 h-8"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -30,7 +29,7 @@ const Faqs: NextPage = () => {
     {
       icon: (
         <svg
-          className="h-8 w-8"
+          className="w-8 h-8"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -49,7 +48,7 @@ const Faqs: NextPage = () => {
     {
       icon: (
         <svg
-          className="h-8 w-8"
+          className="w-8 h-8"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -68,7 +67,7 @@ const Faqs: NextPage = () => {
     {
       icon: (
         <svg
-          className="h-8 w-8"
+          className="w-8 h-8"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -141,7 +140,7 @@ const Faqs: NextPage = () => {
     <>
       {/* Hero */}
       <section
-        className="bg-top bg-no-repeat pb-20 pt-12 lg:bg-contain"
+        className="pt-12 pb-20 bg-top bg-no-repeat lg:bg-contain"
         style={{
           backgroundImage: `url(${(intersectSvg as { src: string }).src})`,
         }}
@@ -165,15 +164,15 @@ const Faqs: NextPage = () => {
             whileInView="show"
             viewport={{ once: true }}
             custom={0.3}
-            className="mx-auto mb-16 flex max-w-3xl justify-center"
+            className="flex justify-center mx-auto mb-16 max-w-3xl"
           >
             <input
-              className="placeholder-blueGray-800 w-2/3 rounded-l bg-white p-5 font-heading text-xs font-bold focus:border-gray-500 focus:outline-none"
+              className="p-5 w-2/3 text-xs font-bold bg-white rounded-l focus:border-gray-500 focus:outline-none placeholder-blueGray-800 font-heading"
               placeholder="Search, find any question you want to ask..."
             />
-            <button className="rounded-r bg-white pr-4 text-blue-600">
+            <button className="pr-4 text-blue-600 bg-white rounded-r">
               <svg
-                className="h-6 w-6"
+                className="w-6 h-6"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -188,7 +187,7 @@ const Faqs: NextPage = () => {
               </svg>
             </button>
           </motion.form>
-          <div className="-mx-3 mb-12 flex flex-wrap justify-between">
+          <div className="flex flex-wrap justify-between -mx-3 mb-12">
             {cards.map((i, index) => (
               <motion.div
                 key={`card-${index}`}
@@ -197,12 +196,12 @@ const Faqs: NextPage = () => {
                 whileInView="show"
                 viewport={{ once: true }}
                 custom={index * 0.2 + 0.1}
-                className="mb-6 w-full px-3 md:w-1/2 lg:w-1/4"
+                className="px-3 mb-6 w-full md:w-1/2 lg:w-1/4"
               >
-                <div className="rounded bg-white p-6 shadow">
+                <div className="p-6 bg-white rounded shadow">
                   <div className="mb-4 text-blue-500">{i.icon}</div>
-                  <h4 className="mb-3 font-heading font-bold">{i.title}</h4>
-                  <ul className="list-inside list-disc text-sm text-blueGray-400">
+                  <h4 className="mb-3 font-bold font-heading">{i.title}</h4>
+                  <ul className="text-sm list-disc list-inside text-blueGray-400">
                     <li className="mb-2">Lorem ipsum dolor sit amet</li>
                     <li className="mb-2">Maecenas efficitur pharetra</li>
                     <li className="mb-2">Sed lorem ante</li>
@@ -221,13 +220,13 @@ const Faqs: NextPage = () => {
               custom={0.3}
               className="flex-1"
             >
-              <div className="mx-auto px-4 lg:ml-0">
+              <div className="px-4 mx-auto lg:ml-0">
                 <motion.h3
                   variants={fadeInUpMotion}
                   initial="hidden"
                   whileInView="show"
                   viewport={{ once: true }}
-                  className="mb-8 font-heading text-4xl font-bold"
+                  className="mb-8 text-4xl font-bold font-heading"
                 >
                   Faqs
                 </motion.h3>
@@ -243,7 +242,7 @@ const Faqs: NextPage = () => {
                           }))
                         )
                       }
-                      className="mt-4 flex w-full items-center justify-between border-b border-gray-200 py-3 font-bold"
+                      className="flex justify-between items-center py-3 mt-4 w-full font-bold border-b border-gray-200"
                     >
                       <span>{i.question}</span>
                       {i.isOpen ? (
@@ -286,7 +285,6 @@ const Faqs: NextPage = () => {
         </div>
       </section>
       <GetInTouch />
-      <Footer />
     </>
   );
 };

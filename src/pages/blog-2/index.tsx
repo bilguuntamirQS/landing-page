@@ -3,7 +3,6 @@ import type { NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import type { FC } from "react";
-import Footer from "~/components/footer";
 import Subscribe from "~/components/subscribe";
 import { fadeInMotion } from "~/utils/animation";
 
@@ -113,7 +112,6 @@ const Blog2: NextPage = () => {
         </div>
       </section>
       <Subscribe />
-      <Footer />
     </>
   );
 };

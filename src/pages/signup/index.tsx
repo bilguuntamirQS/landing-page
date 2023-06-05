@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import type { NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import Footer from "~/components/footer";
 import { MotionLink, fadeInMotion } from "~/utils/animation";
 
 const SignUp: NextPage = () => {
@@ -205,7 +204,6 @@ const SignUp: NextPage = () => {
           </div>
         </div>
       </section>
-      <Footer />
     </>
   );
 };

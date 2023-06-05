@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import type { NextPage } from "next";
 import Image from "next/image";
 import BlogComment from "~/components/blog-comment";
-import Footer from "~/components/footer";
 import Subscribe from "~/components/subscribe";
 import { fadeInMotion } from "~/utils/animation";
 
@@ -138,7 +137,6 @@ const BlogSingle: NextPage = () => {
         </div>
       </section>
       <Subscribe />
-      <Footer />
     </>
   );
 };

@@ -11,7 +11,6 @@ import intersectSvg from "~/assets/intersect.svg";
 import { comments } from "~/utils/consts";
 import Comment from "~/components/comment";
 import GetInTouch from "~/components/get-in-touch";
-import Footer from "~/components/footer";
 
 const Testimonials: NextPage = () => {
   const logos = [
@@ -159,7 +158,6 @@ const Testimonials: NextPage = () => {
         </div>
       </section>
       <GetInTouch />
-      <Footer />
     </>
   );
 };

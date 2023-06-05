@@ -8,7 +8,6 @@ import facebookSvg from "~/assets/facebook-blue.svg";
 import twitterSvg from "~/assets/twitter-blue.svg";
 import Title from "~/components/title";
 import GetInTouch from "~/components/get-in-touch";
-import Footer from "~/components/footer";
 import { comments } from "~/utils/consts";
 import Comment from "~/components/comment";
 
@@ -140,7 +139,6 @@ const Team: NextPage = () => {
         </div>
       </section>
       <GetInTouch />
-      <Footer />
     </>
   );
 };

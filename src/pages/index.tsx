@@ -1,4 +1,4 @@
-import { GetStaticProps, type NextPage } from "next";
+import type { GetStaticProps, NextPage } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -18,7 +18,6 @@ import {
   jumpMotion,
 } from "~/utils/animation";
 import HowWeWork from "~/components/how-we-work";
-import Footer from "~/components/footer";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
@@ -520,7 +519,6 @@ const Home: NextPage = () => {
           </div>
         </div>
       </section>
-      <Footer />
     </>
   );
 };

@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { MotionLink, fadeInMotion, fadeInUpMotion } from "~/utils/animation";
 import Image from "next/image";
 import intersectSvg from "~/assets/intersect.svg";
-import Footer from "~/components/footer";
 import BreadCumb from "~/components/bread-cumb";
 import Title from "~/components/title";
 import GetInTouch from "~/components/get-in-touch";
@@ -395,7 +394,6 @@ const Portfolio: NextPage = () => {
         </div>
       </section>
       <GetInTouch />
-      <Footer />
     </>
   );
 };

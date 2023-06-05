@@ -7,6 +7,7 @@ import { api } from "~/utils/api";
 import "~/styles/globals.css";
 import Header from "~/components/header";
 import { appWithTranslation } from "next-i18next";
+import Footer from "~/components/footer";
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
@@ -17,6 +18,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
       <div className="bg-white font-body text-body">
         <Header />
         <Component {...pageProps} />
+        <Footer />
       </div>
     </SessionProvider>
   );

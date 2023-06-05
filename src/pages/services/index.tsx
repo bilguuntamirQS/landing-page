@@ -8,7 +8,6 @@ import Counter from "~/components/counter";
 import HowWeWork from "~/components/how-we-work";
 import ContactUs from "~/components/contact-us";
 import Subscribe from "~/components/subscribe";
-import Footer from "~/components/footer";
 
 interface Props {
   title: string;
@@ -190,7 +189,6 @@ const Services: NextPage = () => {
       <HowWeWork />
       <ContactUs />
       <Subscribe />
-      <Footer />
     </>
   );
 };

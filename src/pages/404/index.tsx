@@ -1,5 +1,4 @@
 import type { NextPage } from "next";
-import Footer from "~/components/footer";
 import {
   MotionImage,
   MotionLink,
@@ -81,7 +80,6 @@ const NotFound: NextPage = () => {
           </div>
         </div>
       </section>
-      <Footer />
     </>
   );
 };

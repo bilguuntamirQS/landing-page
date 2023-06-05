@@ -1,6 +1,5 @@
 import type { NextPage } from "next";
 import ContactUs from "~/components/contact-us";
-import Footer from "~/components/footer";
 import Hero from "~/components/hero";
 import Subscribe from "~/components/subscribe";
 import { motion } from "framer-motion";
@@ -174,7 +173,6 @@ const Pricing: NextPage = () => {
       </section>
       <ContactUs />
       <Subscribe />
-      <Footer />
     </>
   );
 };
