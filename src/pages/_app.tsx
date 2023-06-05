@@ -8,6 +8,7 @@ import "~/styles/globals.css";
 import Header from "~/components/header";
 import { appWithTranslation } from "next-i18next";
 import Footer from "~/components/footer";
+import ScrollTop from "~/components/scroll-top";
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
@@ -19,6 +20,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
         <Header />
         <Component {...pageProps} />
         <Footer />
+        <ScrollTop />
       </div>
     </SessionProvider>
   );
