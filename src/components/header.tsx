@@ -206,6 +206,31 @@ const Header: FC = () => {
               ))}
             </ul>
             <div className="hidden lg:block">
+              <div className="has-child group relative inline-block">
+                <Link href="#" className="btn-accent has-child hover-up-2">
+                  {router.locale?.toUpperCase()}
+                </Link>
+                <ul className="drop-down-menu min-w-[200px]">
+                  <li>
+                    <Link
+                      href="/"
+                      locale="en"
+                      className="menu-sub-item text-sm text-blueGray-600 hover:text-blueGray-400"
+                    >
+                      EN
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/"
+                      locale="mn"
+                      className="menu-sub-item text-sm text-blueGray-600 hover:text-blueGray-400"
+                    >
+                      MN
+                    </Link>
+                  </li>
+                </ul>
+              </div>
               <Link href="/login" className="btn-accent hover-up-2">
                 Login In
               </Link>
@@ -233,9 +258,8 @@ const Header: FC = () => {
       </header>
       {/* Mobile Menu */}
       <div
-        className={`navbar-menu relative z-50 transition duration-300 ${
-          isMobileOpen ? "" : "hidden"
-        }`}
+        className={`navbar-menu relative z-50 transition duration-300 ${isMobileOpen ? "" : "hidden"
+          }`}
       >
         <div className="navbar-backdrop bg-blueGray-800 fixed inset-0 opacity-25"></div>
         <nav className="fixed bottom-0 left-0 top-0 flex w-full max-w-sm flex-col overflow-y-auto border-r bg-white p-6 transition duration-300">
@@ -264,9 +288,8 @@ const Header: FC = () => {
               {links.map((i, index) => (
                 <li
                   key={`mobile-parent-${index}`}
-                  className={`mb-1 rounded-xl ${
-                    i.sub ? "menu-item-has-children" : ""
-                  }`}
+                  className={`mb-1 rounded-xl ${i.sub ? "menu-item-has-children" : ""
+                    }`}
                 >
                   {i.sub ? (
                     <button
